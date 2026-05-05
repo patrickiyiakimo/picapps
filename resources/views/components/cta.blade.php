@@ -12,11 +12,6 @@
             </path>
         </svg>
         
-        <!-- Floating emerald particles -->
-        <!-- <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-float-slow"></div>
-        <div class="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-emerald-300 rounded-full animate-float-slow-reverse"></div>
-        <div class="absolute bottom-1/3 left-1/4 w-1 h-1 bg-emerald-500 rounded-full animate-pulse-slow"></div>
-         -->
         <!-- Grid pattern overlay -->
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#10B981 1px, transparent 1px); background-size: 30px 30px;"></div>
     </div>
@@ -46,7 +41,7 @@
                 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                    <a href="/contact" class="group inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-8 py-4 font-semibold hover:bg-emerald-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-emerald-500/30">
+                    <a href="/contact" class="group inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-8 py-4 font-semibold hover:bg-emerald-500 transition-all duration-500 shadow-lg">
                         Start Your Project
                         <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
