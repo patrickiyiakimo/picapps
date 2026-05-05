@@ -13,10 +13,10 @@
         </svg>
         
         <!-- Floating emerald particles -->
-        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-float-slow"></div>
+        <!-- <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-float-slow"></div>
         <div class="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-emerald-300 rounded-full animate-float-slow-reverse"></div>
         <div class="absolute bottom-1/3 left-1/4 w-1 h-1 bg-emerald-500 rounded-full animate-pulse-slow"></div>
-        
+         -->
         <!-- Grid pattern overlay -->
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#10B981 1px, transparent 1px); background-size: 30px 30px;"></div>
     </div>
@@ -83,6 +83,13 @@
                 </div>
             </div>
             
+            <!-- Right Side - Lottie Animation (Fixed - Only ONE animation) -->
+            <div class="flex-1 flex justify-center lg:justify-end">
+                <div class="relative">
+                     <!-- Glowing effect behind animation -->
+                    <div class="absolute inset-0 bg-emerald-500/20 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
