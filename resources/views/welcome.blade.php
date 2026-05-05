@@ -23,9 +23,7 @@
     @include('components.hero')
     @include('components.services')
     @include('components.why-choose-us')
-    <!-- @include('components.industry-expertise') -->
     @include('components.industry-expertise')
-    
      @include('components.chatbot')
     <!-- Your footer here -->
 </body>
