@@ -24,7 +24,8 @@
     @include('components.services')
     @include('components.why-choose-us')
     @include('components.industry-expertise')
-     @include('components.chatbot')
+    @include('components.chatbot')
+    @include('components.what-we-build')
     <!-- Your footer here -->
 </body>
 </html>
