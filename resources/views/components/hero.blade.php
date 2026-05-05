@@ -36,43 +36,19 @@
                     <span class="text-xs font-semibold text-navy-700 uppercase tracking-wider">Trusted by 500+ Companies</span>
                 </div>
 
-                <!-- Main Heading - Bold & Unique -->
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
-                    <span class="text-navy-900">Digital </span>
-                    <span class="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">Products</span>
-                    <br>
-                    <span class="text-navy-900">That </span>
-                    <span class="relative inline-block">
-                        <span class="text-navy-900">Perform</span>
-                        <!-- <svg class="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 300 8" preserveAspectRatio="none">
-                            <path d="M0,4 Q75,0 150,4 Q225,8 300,4" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        </svg> -->
-                    </span>
-                </h1>
+             <!-- Main Heading - Clear & Direct -->
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-6">
+    <span class="text-navy-900">Build Your</span>
+    <br>
+    <span class="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">Website or Mobile App</span>
+    <br>
+    <span class="text-navy-900">With Us</span>
+</h1>
 
-                <p class="text-gray-500 text-lg mb-8 max-w-lg leading-relaxed">
-                    We're the creative force behind brands that dominate. From sleek websites to powerful mobile apps — we build digital experiences that drive real results.
-                </p>
-
-                <!-- CTA Buttons - Bold Design -->
-                <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    <a href="#book-call" class="group relative inline-flex items-center justify-center gap-3 bg-emerald-900 text-white px-8 py-4 font-semibold overflow-hidden transition-all duration-300 hover:bg-emerald-600">
-                        <span class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                        <span class="relative z-10 flex items-center gap-2">
-                            Start a Project
-                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </span>
-                    </a>
-                    <button id="open-chatbot" class="inline-flex items-center justify-center gap-2 border-2 border-navy-200 text-navy-700 px-8 py-4 font-semibold hover:border-emerald-500 hover:text-emerald-600 transition-all duration-300 group bg-white">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                        </svg>
-                        Chat with AI
-                    </button>
-                </div>
-            </div>
+<p class="text-gray-500 text-lg mb-8 max-w-lg leading-relaxed">
+    We build custom websites, e-commerce stores, and mobile apps that grow your business. 
+    No design? No problem. We handle everything from start to finish.
+</p>
 
             <!-- Right Side - Dynamic Image Showcase -->
             <div class="order-1 lg:order-2 relative">

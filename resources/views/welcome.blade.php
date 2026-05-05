@@ -10,23 +10,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50">
+<body class="bg-white font-sans">
     @include('layouts.navbar')
     
     <main>
-        @yield('content')
+        <!-- Hero Section - Full width, no container -->
+        @include('components.hero')
+        
+        <!-- Services Section -->
+        @include('components.services')
+        
+        <!-- Why Choose Us Section -->
+        @include('components.why-choose-us')
+        
+        <!-- Industry Expertise Section -->
+        @include('components.industry-expertise')
+        
+        <!-- Tools/Technologies Section -->
+        @include('components.tools')
+        
+        <!-- What We Build Section (Pre-built websites) -->
+        @include('components.what-we-build')
+        
+        <!-- CTA Section -->
+        @include('components.cta')
     </main>
     
-    @include('components.hero')
-    @include('components.tools')
-    @include('components.services')
-    @include('components.why-choose-us')
-    @include('components.industry-expertise')
+    <!-- Chatbot -->
     @include('components.chatbot')
-    @include('components.what-we-build')
-    <!-- Your footer here -->
+    
+    <!-- Footer (create this if you haven't) -->
+    @include('layouts.footer')
 </body>
 </html>
