@@ -26,6 +26,7 @@
     <!-- @include('components.industry-expertise') -->
     @include('components.industry-expertise')
     
+     @include('components.chatbot')
     <!-- Your footer here -->
 </body>
 </html>

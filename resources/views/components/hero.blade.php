@@ -1,165 +1,142 @@
-<section class="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 overflow-hidden">
-    <!-- Wavy Background Elements - Now more visible -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-white">
+    
+    <!-- Premium Background Design -->
     <div class="absolute inset-0 z-0">
-        <!-- Top wavy pattern - lighter for contrast -->
-        <svg class="absolute top-0 right-0 w-96 h-96 text-blue-400 opacity-30" viewBox="0 0 200 200" fill="currentColor">
-            <path d="M100,0 C150,0 200,50 200,100 C200,150 150,200 100,200 C50,200 0,150 0,100 C0,50 50,0 100,0 Z" opacity="0.4"/>
-            <path d="M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20 Z" opacity="0.5"/>
-        </svg>
+        <!-- Main white background -->
+        <div class="absolute inset-0 bg-white"></div>
         
-        <!-- Animated wavy lines background -->
-        <svg class="absolute top-0 left-0 w-full h-full opacity-20" viewBox="0 0 1200 800" preserveAspectRatio="none">
-            <path d="M0,200 Q150,150 300,200 Q450,250 600,200 Q750,150 900,200 Q1050,250 1200,200" stroke="#3b82f6" stroke-width="2" fill="none" stroke-dasharray="10 10"/>
-            <path d="M0,400 Q150,350 300,400 Q450,450 600,400 Q750,350 900,400 Q1050,450 1200,400" stroke="#60a5fa" stroke-width="2" fill="none" stroke-dasharray="10 10" opacity="0.5"/>
-            <path d="M0,600 Q150,550 300,600 Q450,650 600,600 Q750,550 900,600 Q1050,650 1200,600" stroke="#93c5fd" stroke-width="2" fill="none" stroke-dasharray="10 10" opacity="0.3"/>
-        </svg>
+        <!-- Diagonal emerald accent shape -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-emerald-50 via-emerald-50/50 to-transparent transform skew-x-12 -mr-20"></div>
         
-        <!-- Bottom wavy lines -->
-        <svg class="absolute bottom-0 left-0 w-full h-64" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor" class="text-blue-500">
-            <path d="M0,0 C150,80 300,0 450,40 C600,80 750,20 900,60 C1050,100 1150,40 1200,0 L1200,120 L0,120 Z" fill="#1e3a8a" opacity="0.4"/>
-        </svg>
-
-        <!-- Glowing orb effects -->
-        <div class="absolute top-20 left-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-        <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
+        <!-- Large abstract emerald blob -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-40"></div>
+        
+        <!-- Small emerald blob bottom left -->
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-50 rounded-full filter blur-3xl opacity-60"></div>
+        
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#10B981 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <!-- Floating emerald rings -->
+        <div class="absolute top-1/3 right-1/4 w-64 h-64 border border-emerald-200 rounded-full animate-spin-slow"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-48 h-48 border border-emerald-100 rounded-full animate-spin-slow-reverse"></div>
     </div>
 
-    <!-- Dark overlay to improve text readability -->
-    <div class="absolute inset-0 bg-black/40 z-1"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left Side - Bold Text Content -->
+            <div class="order-2 lg:order-1">
+                <!-- Premium Badge -->
+                <div class="inline-flex items-center gap-2 bg-white shadow-lg px-4 py-2 rounded-full mb-8 border border-emerald-100">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-xs font-semibold text-navy-700 uppercase tracking-wider">Trusted by 500+ Companies</span>
+                </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-16">
-        <div class="max-w-4xl mx-auto text-center">
-           <!-- Main Heading with Wavy Underline - Dark text -->
-           <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-tight mb-6" style="font-family: 'Bricolage Grotesque', sans-serif;">
-                Premier Custom Web & Mobile
-                <span class="relative inline-block">
-                    Application Development
-                    <svg class="absolute -bottom-3 left-0 w-full h-4 text-blue-400" viewBox="0 0 400 12" preserveAspectRatio="none">
-                        <path d="M0,6 Q50,0 100,6 Q150,12 200,6 Q250,0 300,6 Q350,12 400,6" stroke="#60a5fa" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    </svg>
-                </span>
-                <br>
-                <span class="bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
-                    Company
-                </span>
-            </h1>
+                <!-- Main Heading - Bold & Unique -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
+                    <span class="text-navy-900">Digital </span>
+                    <span class="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">Products</span>
+                    <br>
+                    <span class="text-navy-900">That </span>
+                    <span class="relative inline-block">
+                        <span class="text-navy-900">Perform</span>
+                        <!-- <svg class="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 300 8" preserveAspectRatio="none">
+                            <path d="M0,4 Q75,0 150,4 Q225,8 300,4" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </svg> -->
+                    </span>
+                </h1>
 
-            <!-- Catchy Subtitle - Lighter text for readability -->
-            <div class="relative">
-                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed" style="font-family: 'Space Grotesk', sans-serif;">
-                    Transforming ideas into exceptional digital experiences that drive growth, 
-                    engage users, and deliver measurable results for your business.
+                <p class="text-gray-500 text-lg mb-8 max-w-lg leading-relaxed">
+                    We're the creative force behind brands that dominate. From sleek websites to powerful mobile apps — we build digital experiences that drive real results.
                 </p>
-                
-                <!-- Decorative wavy dots - brighter -->
-                <div class="absolute -left-12 top-1/2 transform -translate-y-1/2 hidden lg:block">
-                    <svg width="40" height="80" viewBox="0 0 40 80" fill="none">
-                        <circle cx="20" cy="10" r="3" fill="#60a5fa" opacity="0.6"/>
-                        <circle cx="20" cy="30" r="2" fill="#60a5fa" opacity="0.8"/>
-                        <circle cx="20" cy="50" r="3" fill="#60a5fa" opacity="0.6"/>
-                        <circle cx="20" cy="70" r="2" fill="#60a5fa" opacity="0.8"/>
-                    </svg>
-                </div>
-                <div class="absolute -right-12 top-1/2 transform -translate-y-1/2 hidden lg:block">
-                    <svg width="40" height="80" viewBox="0 0 40 80" fill="none">
-                        <circle cx="20" cy="10" r="2" fill="#60a5fa" opacity="0.8"/>
-                        <circle cx="20" cy="30" r="3" fill="#60a5fa" opacity="0.6"/>
-                        <circle cx="20" cy="50" r="2" fill="#60a5fa" opacity="0.8"/>
-                        <circle cx="20" cy="70" r="3" fill="#60a5fa" opacity="0.6"/>
-                    </svg>
+
+                <!-- CTA Buttons - Bold Design -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                    <a href="#book-call" class="group relative inline-flex items-center justify-center gap-3 bg-emerald-900 text-white px-8 py-4 font-semibold overflow-hidden transition-all duration-300 hover:bg-emerald-600">
+                        <span class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                        <span class="relative z-10 flex items-center gap-2">
+                            Start a Project
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </a>
+                    <button id="open-chatbot" class="inline-flex items-center justify-center gap-2 border-2 border-navy-200 text-navy-700 px-8 py-4 font-semibold hover:border-emerald-500 hover:text-emerald-600 transition-all duration-300 group bg-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        Chat with AI
+                    </button>
                 </div>
             </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-500 transition-all duration-500 shadow-lg hover:shadow-xl group">
-                    Start Your Project
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </a>
-                <a href="#services" class="inline-flex items-center justify-center gap-2 border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/20 hover:border-white/50 transition-all duration-500">
-                    View Our Work
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Stats with wavy dividers - Light text -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/20 relative">
-                <!-- Decorative wavy line between stats on desktop -->
-                <div class="hidden sm:block absolute left-1/3 top-1/2 transform -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
-                <div class="hidden sm:block absolute left-2/3 top-1/2 transform -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
-                
-                <div class="text-center group cursor-pointer">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">500+</div>
-                    <div class="text-sm text-gray-300">Projects Delivered</div>
-                    <div class="w-12 h-0.5 bg-blue-400 mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <div class="text-center group cursor-pointer">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">98%</div>
-                    <div class="text-sm text-gray-300">Client Satisfaction</div>
-                    <div class="w-12 h-0.5 bg-blue-400 mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <div class="text-center group cursor-pointer">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">24/7</div>
-                    <div class="text-sm text-gray-300">Support</div>
-                    <div class="w-12 h-0.5 bg-blue-400 mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-            </div>
-
-            <!-- Floating Tech Icons (Decorative) - Brighter on dark -->
-            <div class="absolute left-0 top-1/3 transform -translate-y-1/2 hidden xl:block">
-                <div class="flex flex-col gap-4 animate-float-slow">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-10 h-10 opacity-80 hover:opacity-100 transition-opacity filter brightness-200 drop-shadow-lg" alt="Laravel">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-10 h-10 opacity-80 hover:opacity-100 transition-opacity filter brightness-200 drop-shadow-lg" alt="React">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" class="w-10 h-10 opacity-80 hover:opacity-100 transition-opacity filter brightness-200 drop-shadow-lg" alt="Vue">
-                </div>
-            </div>
-
-            <div class="absolute right-0 top-1/3 transform -translate-y-1/2 hidden xl:block">
-                <div class="flex flex-col gap-4 animate-float-slow-reverse">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-10 h-10 opacity-80 hover:opacity-100 transition-opacity filter brightness-200 drop-shadow-lg" alt="Flutter">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-10 h-10 opacity-80 hover:opacity-100 transition-opacity filter brightness-200 drop-shadow-lg" alt="Tailwind">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-10 h-10 opacity-80 hover:opacity-100 transition-opacity filter brightness-200 drop-shadow-lg" alt="MySQL">
+            <!-- Right Side - Dynamic Image Showcase -->
+            <div class="order-1 lg:order-2 relative">
+                <div class="relative">
+                    
+                    <!-- Main Floating Card -->
+                    <div class="relative z-20">
+                        <div class="overflow-hidden">
+                            <!-- Team Image -->
+                            <img src="{{ asset('/images/lady-guy-image.png') }}" alt="Alta Team" class="w-full h-auto">
+                            <div class="p-4 bg-white">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold text-navy-900">Team Alta</p>
+                                        <p class="text-xs text-gray-400">Working on your success</p>
+                                    </div>
+                                    <div class="flex -space-x-2">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 border-2 border-white"></div>
+                                        <div class="w-6 h-6 rounded-full bg-emerald-200 border-2 border-white"></div>
+                                        <div class="w-6 h-6 rounded-full bg-emerald-300 border-2 border-white"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Element - Code Icon -->
+                    <div class="absolute top-1/4 -left-4 z-10 animate-float-slow-reverse opacity-50">
+                        <svg class="w-12 h-12 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Floating Element - Sparkle -->
+                    <div class="absolute bottom-1/3 -right-2 z-10 animate-pulse">
+                        <svg class="w-8 h-8 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5Z"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Bottom Wavy Divider - Lighter -->
-    <div class="absolute bottom-0 left-0 w-full">
-        <svg class="w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor" class="text-white">
-            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"/>
-        </svg>
-    </div>
 </section>
 
 <style>
-    @keyframes pulse-slow {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.8; transform: scale(0.98); }
-    }
-    
     @keyframes float-slow {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+        50% { transform: translateY(-15px); }
     }
     
     @keyframes float-slow-reverse {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(20px); }
+        50% { transform: translateY(15px); }
     }
     
-    @keyframes pulse {
-        0%, 100% { opacity: 0.1; transform: scale(1); }
-        50% { opacity: 0.2; transform: scale(1.05); }
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
     
-    .animate-pulse-slow {
-        animation: pulse-slow 2s ease-in-out infinite;
+    @keyframes spin-slow-reverse {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
     }
     
     .animate-float-slow {
@@ -167,6 +144,24 @@
     }
     
     .animate-float-slow-reverse {
-        animation: float-slow-reverse 6s ease-in-out infinite;
+        animation: float-slow-reverse 5s ease-in-out infinite;
+    }
+    
+    .animate-spin-slow {
+        animation: spin-slow 20s linear infinite;
+    }
+    
+    .animate-spin-slow-reverse {
+        animation: spin-slow-reverse 25s linear infinite;
+    }
+    
+    /* No rounded corners on buttons */
+    .rounded-lg, .rounded-xl, .rounded-2xl {
+        border-radius: 0 !important;
+    }
+    
+    /* Keep avatars and badges circular */
+    .rounded-full {
+        border-radius: 9999px !important;
     }
 </style>
