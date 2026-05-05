@@ -21,6 +21,7 @@
     </main>
     
     @include('components.hero')
+    @include('components.tools')
     @include('components.services')
     @include('components.why-choose-us')
     @include('components.industry-expertise')
