@@ -6,7 +6,7 @@
             <div class="flex items-center">
                 <a href="/" class="flex items-center space-x-2 group">
                     <div class="relative flex items-center">
-                        <img src="/images/alta-logo.png" alt="Alta - Digital Agency Logo" class="h-12 w-auto md:h-14 lg:h-20">
+                        <img src="/images/alta-logo.png" alt="Alta - Digital Agency Logo" class="h-12 w-auto md:h-14 lg:h-20 bg-emerald-600">
                         <div class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                     </div>
                     <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
