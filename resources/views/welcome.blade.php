@@ -34,7 +34,10 @@
         
         <!-- What We Build Section (Pre-built websites) -->
         @include('components.what-we-build')
-        
+
+        <!-- Testimonials Section -->
+        @include('components.testimonials')
+
         <!-- CTA Section -->
         @include('components.cta')
     </main>
