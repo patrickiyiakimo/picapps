@@ -99,7 +99,7 @@
                         <div class="py-2">
                             <a href="/blog" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Blog</a>
                             <a href="/case-studies" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Case Studies</a>
-                            <a href="/whitepapers" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Whitepapers</a>
+                            <!-- <a href="/whitepapers" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Whitepapers</a> -->
                             <a href="/webinars" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Webinars</a>
                         </div>
                     </div>
@@ -198,7 +198,7 @@
                 <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2">
                     <a href="/blog" class="block py-1 text-sm text-emerald-600 hover:text-emerald-600 transition">Blog</a>
                     <a href="/case-studies" class="block py-1 text-sm text-emerald-600 hover:text-emerald-600 transition">Case Studies</a>
-                    <a href="/whitepapers" class="block py-1 text-sm text-emerald-600 hover:text-emerald-600 transition">Whitepapers</a>
+                    <!-- <a href="/whitepapers" class="block py-1 text-sm text-emerald-600 hover:text-emerald-600 transition">Whitepapers</a> -->
                     <a href="/webinars" class="block py-1 text-sm text-emerald-600 hover:text-emerald-600 transition">Webinars</a>
                 </div>
             </div>

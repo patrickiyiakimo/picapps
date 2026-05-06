@@ -27,6 +27,14 @@ Route::view('/about/partners', 'about.partners')->name('about.partners');
 
 Route::view('/resources', 'resources')->name('resources');
 
+Route::view('/blog', 'blog')->name('blog');
+
+Route::view('/case-studies', 'case-studies')->name('case-studies');
+
+Route::view('/webinars', 'webinars')->name('webinars');
+
+Route::view('/portfolio', 'portfolio')->name('portfolio');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
