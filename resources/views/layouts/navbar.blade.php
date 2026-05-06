@@ -28,7 +28,7 @@
                     
                     <div class="absolute top-full left-0 w-56 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
                         <div class="py-2">
-                            <a href="/about/company" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Our Company</a>
+                            <!-- <a href="/about/company" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Our Company</a> -->
                             <a href="/about/team" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Leadership Team</a>
                             <a href="/about/careers" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Careers</a>
                             <a href="/about/partners" class="block px-4 py-2 text-sm text-navy-700 hover:bg-emerald-50 hover:text-emerald-600">Partners</a>
