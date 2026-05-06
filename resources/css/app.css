@@ -1,3 +1,223 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    /* Emerald selection/highlight color */
+    ::selection {
+        background-color: #10B981;
+        color: white;
+    }
+    
+    ::-moz-selection {
+        background-color: #10B981;
+        color: white;
+    }
+    
+    /* Focus outline for all elements */
+    *:focus {
+        outline: none;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Default body styles */
+    body {
+        @apply antialiased;
+    }
+}
+
+@layer components {
+    /* Professional Input Fields */
+    .input-primary {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-lg transition-all duration-200;
+        @apply focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20;
+        @apply hover:border-gray-400;
+        @apply bg-white text-gray-900;
+    }
+    
+    /* Input with label */
+    .input-group {
+        @apply mb-5;
+    }
+    
+    .input-label {
+        @apply block text-sm font-medium text-gray-700 mb-2;
+    }
+    
+    .input-error {
+        @apply border-red-500 focus:border-red-500 focus:ring-red-500/20;
+    }
+    
+    .error-message {
+        @apply text-xs text-red-500 mt-1;
+    }
+    
+    /* Textarea styles */
+    .textarea-primary {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-lg transition-all duration-200 resize-y;
+        @apply focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20;
+        @apply hover:border-gray-400;
+        @apply bg-white text-gray-900;
+        min-height: 100px;
+    }
+    
+    /* Checkbox Styles - Modern & Beautiful */
+    .checkbox-wrapper {
+        @apply flex items-center cursor-pointer;
+    }
+    
+    .checkbox-custom {
+        @apply appearance-none w-5 h-5 border-2 border-gray-300 rounded transition-all duration-200;
+        @apply checked:bg-emerald-600 checked:border-emerald-600;
+        @apply focus:outline-none focus:ring-2 focus:ring-emerald-500/20;
+        @apply cursor-pointer relative;
+    }
+    
+    .checkbox-custom:checked {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 6L9 17l-5-5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-size: 14px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    /* Radio Button Styles */
+    .radio-custom {
+        @apply appearance-none w-5 h-5 border-2 border-gray-300 rounded-full transition-all duration-200;
+        @apply checked:bg-emerald-600 checked:border-emerald-600;
+        @apply focus:outline-none focus:ring-2 focus:ring-emerald-500/20;
+        @apply cursor-pointer relative;
+    }
+    
+    .radio-custom:checked {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Ccircle cx='12' cy='12' r='6' fill='white'/%3E%3C/svg%3E");
+        background-size: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    /* Toggle Switch */
+    .toggle-switch {
+        @apply relative inline-flex items-center cursor-pointer;
+    }
+    
+    .toggle-input {
+        @apply sr-only;
+    }
+    
+    .toggle-slider {
+        @apply w-11 h-6 bg-gray-300 rounded-full transition-all duration-200;
+    }
+    
+    .toggle-input:checked + .toggle-slider {
+        @apply bg-emerald-600;
+    }
+    
+    .toggle-slider:before {
+        content: "";
+        @apply absolute w-5 h-5 bg-white rounded-full transition-all duration-200;
+        top: 2px;
+        left: 2px;
+    }
+    
+    .toggle-input:checked + .toggle-slider:before {
+        transform: translateX(20px);
+    }
+    
+    /* Select Dropdown */
+    .select-primary {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-lg appearance-none transition-all duration-200;
+        @apply focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20;
+        @apply hover:border-gray-400;
+        @apply bg-white text-gray-900;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 20px;
+    }
+    
+    /* File Input */
+    .file-input {
+        @apply w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0;
+        @apply file:text-sm file:font-semibold file:bg-emerald-600 file:text-white;
+        @apply file:cursor-pointer file:transition-all file:duration-200;
+        @apply file:hover:bg-emerald-700;
+    }
+    
+    /* Floating Label Input */
+    .input-floating {
+        @apply w-full px-4 pt-6 pb-2 border border-gray-300 rounded-lg transition-all duration-200;
+        @apply focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20;
+        @apply hover:border-gray-400;
+        @apply bg-white text-gray-900;
+    }
+    
+    .input-floating-label {
+        @apply absolute left-4 transition-all duration-200 pointer-events-none;
+    }
+    
+    /* Input with Icon */
+    .input-icon-wrapper {
+        @apply relative;
+    }
+    
+    .input-icon {
+        @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400;
+    }
+    
+    .input-with-icon {
+        @apply pl-10;
+    }
+    
+    /* Disabled Input */
+    .input-disabled {
+        @apply bg-gray-100 cursor-not-allowed opacity-60;
+    }
+    
+    /* Readonly Input */
+    .input-readonly {
+        @apply bg-gray-50 cursor-default;
+    }
+    
+    /* Success Input */
+    .input-success {
+        @apply border-green-500 focus:border-green-500 focus:ring-green-500/20;
+    }
+    
+    .success-message {
+        @apply text-xs text-green-500 mt-1;
+    }
+    
+    /* Helper Text */
+    .input-helper {
+        @apply text-xs text-gray-500 mt-1;
+    }
+}
+
+@layer utilities {
+    /* Custom focus visible */
+    .focus-ring-emerald {
+        @apply focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+    }
+    
+    /* Custom scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-gray-100 rounded;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-emerald-400 rounded;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply bg-emerald-600;
+    }
+}

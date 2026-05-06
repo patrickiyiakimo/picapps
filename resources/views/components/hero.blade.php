@@ -33,22 +33,62 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
-                    <span class="text-xs font-semibold text-navy-700 uppercase tracking-wider">Trusted by 500+ Companies</span>
+                    <span class="text-xs font-semibold text-navy-700 uppercase tracking-wider font-sans">Trusted by 500+ Companies</span>
                 </div>
 
-             <!-- Main Heading - Clear & Direct -->
-<h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-6">
-    <span class="text-navy-900">Build Your</span>
-    <br>
-    <span class="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">Website or Mobile App</span>
-    <br>
-    <span class="text-navy-900">With Us</span>
-</h1>
+                <!-- Main Heading - Clear & Direct with Font -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-6 font-display">
+                    <span class="text-navy-900">Build Your</span>
+                    <br>
+                    <span class="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">Website or Mobile App</span>
+                    <br>
+                    <span class="text-navy-900">With Us</span>
+                </h1>
 
-<p class="text-gray-500 text-lg mb-8 max-w-lg leading-relaxed">
-    We build custom websites, e-commerce stores, and mobile apps that grow your business. 
-    No design? No problem. We handle everything from start to finish.
-</p>
+                <p class="text-gray-500 text-lg mb-8 max-w-lg leading-relaxed font-sans">
+                    We build custom websites, e-commerce stores, and mobile apps that grow your business. 
+                    No design? No problem. We handle everything from start to finish.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                    <a href="#book-call" class="group relative inline-flex items-center justify-center gap-3 bg-navy-900 text-white px-8 py-4 font-semibold overflow-hidden transition-all duration-300 hover:bg-emerald-600 font-sans">
+                        <span class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                        <span class="relative z-10 flex items-center gap-2">
+                            Start a Project
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </span>
+                    </a>
+                    <button id="open-chatbot" class="inline-flex items-center justify-center gap-2 border-2 border-navy-200 text-navy-700 px-8 py-4 font-semibold hover:border-emerald-500 hover:text-emerald-600 transition-all duration-300 group bg-white font-sans">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        Chat with AI
+                    </button>
+                </div>
+
+                <!-- Social Proof -->
+                <!-- <div class="flex items-center gap-6">
+                    <div class="flex -space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-white flex items-center justify-center text-emerald-600 font-bold text-xs">JD</div>
+                        <div class="w-10 h-10 rounded-full bg-emerald-200 border-2 border-white flex items-center justify-center text-emerald-600 font-bold text-xs">MK</div>
+                        <div class="w-10 h-10 rounded-full bg-emerald-300 border-2 border-white flex items-center justify-center text-emerald-700 font-bold text-xs">SR</div>
+                        <div class="w-10 h-10 rounded-full bg-navy-900 border-2 border-white flex items-center justify-center text-white font-bold text-xs">+500</div>
+                    </div>
+                    <div>
+                        <div class="flex text-emerald-500">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-1 font-sans">Rated 4.9/5 by 200+ clients</p>
+                    </div>
+                </div> -->
+            </div>
 
             <!-- Right Side - Dynamic Image Showcase -->
             <div class="order-1 lg:order-2 relative">
@@ -62,14 +102,14 @@
                             <div class="p-4 bg-white">
                                 <div class="flex items-center justify-between">
                                     <div>
-                                        <p class="text-sm font-semibold text-navy-900">Team Alta</p>
-                                        <p class="text-xs text-gray-400">Working on your success</p>
+                                        <p class="text-sm font-semibold text-navy-900 font-sans">Team Alta</p>
+                                        <p class="text-xs text-gray-400 font-sans">Working on your success</p>
                                     </div>
-                                    <div class="flex -space-x-2">
+                                    <!-- <div class="flex -space-x-2">
                                         <div class="w-6 h-6 rounded-full bg-emerald-100 border-2 border-white"></div>
                                         <div class="w-6 h-6 rounded-full bg-emerald-200 border-2 border-white"></div>
                                         <div class="w-6 h-6 rounded-full bg-emerald-300 border-2 border-white"></div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
