@@ -67,7 +67,7 @@
                     <div class="relative z-20">
                         <div class="overflow-hidden ">
                             <!-- Team Image -->
-                            <img src="{{ asset('/images/lady-guy-image.png') }}" alt="Alta Team" class="w-full h-auto object-cover">
+                            <img src="{{ asset('/images/Group 21.png') }}" alt="Alta Team" class="w-full h-auto object-cover">
                         </div>
                     </div>
                     
