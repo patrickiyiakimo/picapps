@@ -62,20 +62,20 @@
                         Custom websites built with modern technologies that are fast, responsive, and SEO-optimized.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-500">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                        <li class="flex items-center gap-2 rounded-full">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             Laravel, React, Vue.js
                         </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                        <li class="flex items-center gap-2 rounded-full">
+                            <svg class="w-7 h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             Fully responsive design
                         </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                        <li class="flex items-center gap-2 rounded-full">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             SEO & performance optimized
@@ -107,19 +107,19 @@
                     </p>
                     <ul class="space-y-2 text-sm text-gray-500">
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             iOS & Android apps
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             Flutter, React Native
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             App Store & Play Store deployment
@@ -151,19 +151,19 @@
                     </p>
                     <ul class="space-y-2 text-sm text-gray-500">
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             Figma design files
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             Wireframing & prototyping
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-7  h-7 bg-emerald-900 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                             </svg>
                             User research & testing

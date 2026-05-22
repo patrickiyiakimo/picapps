@@ -97,17 +97,17 @@
         <!-- Stats Row -->
         <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-100 pt-12">
             <div class="text-center">
-                <div class="text-4xl font-bold text-emerald-600">500+</div>
+                <div class="text-4xl lg:text-7xl font-bold text-emerald-600">500+</div>
                 <p class="text-gray-500 mt-2">Projects Delivered</p>
                 <div class="w-12 h-0.5 bg-emerald-200 mx-auto mt-2"></div>
             </div>
             <div class="text-center">
-                <div class="text-4xl font-bold text-emerald-600">98%</div>
+                <div class="text-4xl lg:text-7xl font-bold text-emerald-600">98%</div>
                 <p class="text-gray-500 mt-2">Client Retention Rate</p>
                 <div class="w-12 h-0.5 bg-emerald-200 mx-auto mt-2"></div>
             </div>
             <div class="text-center">
-                <div class="text-4xl font-bold text-emerald-600">24/7</div>
+                <div class="text-4xl lg:text-7xl font-bold text-emerald-600">24/7</div>
                 <p class="text-gray-500 mt-2">Premium Support</p>
                 <div class="w-12 h-0.5 bg-emerald-200 mx-auto mt-2"></div>
             </div>
