@@ -35,9 +35,9 @@
 <!-- Frontend Technologies - Scrolling Left -->
 <div class="mb-12 overflow-hidden">
     <div class="flex items-center gap-3 mb-8">
-        <div class="w-12 h-0.5 bg-emerald-400"></div>
+        <div class="w-12 h-0.5 bg-[#61629F]"></div>
         <h3 class="text-xl font-bold text-navy-900">Frontend Development</h3>
-        <div class="flex-1 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent"></div>
+        <div class="flex-1 h-0.5 bg-[#61629F]"></div>
     </div>
     
     <div class="overflow-hidden">
@@ -122,9 +122,9 @@
 <!-- Backend Technologies - Scrolling Right -->
 <div class="mb-12 overflow-hidden">
     <div class="flex items-center gap-3 mb-8">
-        <div class="w-12 h-0.5 bg-emerald-400"></div>
+        <div class="w-12 h-0.5 bg-[#61629F]"></div>
         <h3 class="text-xl font-bold text-navy-900">Backend Development</h3>
-        <div class="flex-1 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent"></div>
+        <div class="flex-1 h-0.5 bg-[#61629F]"></div>
     </div>
     
     <div class="overflow-hidden">

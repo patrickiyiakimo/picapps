@@ -1,25 +1,17 @@
 <section class="relative bg-white py-20 md:py-28 overflow-hidden">
     <!-- Premium Background Design -->
-    <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-br from-emerald-50/30 to-transparent"></div>
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-20"></div>
-        <div class="absolute bottom-20 right-20 w-80 h-80 bg-emerald-50 rounded-full filter blur-3xl opacity-30"></div>
-        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#10B981 1px, transparent 1px); background-size: 30px 30px;"></div>
-    </div>
+   
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
         <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 px-4 py-2 mb-6 border border-emerald-200">
-                <div class="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
-                <span class="text-xs font-semibold uppercase tracking-wider">Why Choose Alta</span>
-            </div>
+          
             
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-4 font-display">
-                What Makes Us <span class="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">Different</span>
+                What Makes Us <span class="bg-gradient-to-r from-[#61629F] to-[#7B7CB3] bg-clip-text text-transparent">Different</span>
             </h2>
-            <div class="w-20 h-1 bg-emerald-500 mx-auto mb-6"></div>
+            <div class="w-20 h-1 bg-gradient-to-r from-[#61629F] to-[#7B7CB3] mx-auto mb-6"></div>
             <p class="text-gray-500 max-w-2xl mx-auto text-base">
                 We combine technical excellence with genuine partnership to deliver exceptional results
             </p>
@@ -29,16 +21,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <!-- Card 1: Experience -->
-            <div class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
+            <div class="group bg-white border border-gray-200 hover:border-[#61629F] hover:shadow-xl transition-all duration-300">
                 <div class="p-6 text-center">
-                    <!-- Image/SVG Icon -->
-                    <div class="w-20 h-20 mx-auto mb-5 flex items-center justify-center">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" 
-                             alt="Experience Icon" 
-                             class="w-16 h-16 opacity-80 group-hover:opacity-100 transition">
+                    <!-- SVG Icon -->
+                    <div class="w-20 h-20 rounded-full bg-[#61629F]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#61629F] transition-all duration-300">
+                        <svg class="w-10 h-10 text-[#61629F] group-hover:text-white transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
                     </div>
-                    <div class="text-center w-12 h-0.5 bg-emerald-400 mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-3">10+ Years</h3>
+                    <div class="text-center w-12 h-0.5 bg-[#61629F] mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3 group-hover:text-[#61629F] transition-colors">10+ Years</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Over a decade of excellence in digital innovation and client success
                     </p>
@@ -46,15 +38,15 @@
             </div>
 
             <!-- Card 2: Expert Team -->
-            <div class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
+            <div class="group bg-white border border-gray-200 hover:border-[#61629F] hover:shadow-xl transition-all duration-300">
                 <div class="p-6 text-center">
-                    <div class="w-20 h-20 mx-auto mb-5 flex items-center justify-center">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
-                             alt="Expert Team Icon" 
-                             class="w-16 h-16 opacity-80 group-hover:opacity-100 transition">
+                    <div class="w-20 h-20 rounded-full bg-[#61629F]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#61629F] transition-all duration-300">
+                        <svg class="w-10 h-10 text-[#61629F] group-hover:text-white transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
                     </div>
-                    <div class="text-center w-12 h-0.5 bg-emerald-400 mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-3">Expert Team</h3>
+                    <div class="text-center w-12 h-0.5 bg-[#61629F] mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3 group-hover:text-[#61629F] transition-colors">Expert Team</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Elite developers, designers, and strategists at your service
                     </p>
@@ -62,15 +54,15 @@
             </div>
 
             <!-- Card 3: Client-First -->
-            <div class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
+            <div class="group bg-white border border-gray-200 hover:border-[#61629F] hover:shadow-xl transition-all duration-300">
                 <div class="p-6 text-center">
-                    <div class="w-20 h-20 mx-auto mb-5 flex items-center justify-center">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" 
-                             alt="Client First Icon" 
-                             class="w-16 h-16 opacity-80 group-hover:opacity-100 transition">
+                    <div class="w-20 h-20 rounded-full bg-[#61629F]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#61629F] transition-all duration-300">
+                        <svg class="w-10 h-10 text-[#61629F] group-hover:text-white transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
+                        </svg>
                     </div>
-                    <div class="text-center w-12 h-0.5 bg-emerald-400 mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-3">Client-First</h3>
+                    <div class="text-center w-12 h-0.5 bg-[#61629F] mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3 group-hover:text-[#61629F] transition-colors">Client-First</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Your vision drives everything we do. We're with you every step.
                     </p>
@@ -78,15 +70,15 @@
             </div>
 
             <!-- Card 4: Full-Cycle -->
-            <div class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
+            <div class="group bg-white border border-gray-200 hover:border-[#61629F] hover:shadow-xl transition-all duration-300">
                 <div class="p-6 text-center">
-                    <div class="w-20 h-20 mx-auto mb-5 flex items-center justify-center">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" 
-                             alt="Full Cycle Icon" 
-                             class="w-16 h-16 opacity-80 group-hover:opacity-100 transition">
+                    <div class="w-20 h-20 rounded-full bg-[#61629F]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#61629F] transition-all duration-300">
+                        <svg class="w-10 h-10 text-[#61629F] group-hover:text-white transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
                     </div>
-                    <div class="text-center w-12 h-0.5 bg-emerald-400 mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-3">Full-Cycle</h3>
+                    <div class="text-center w-12 h-0.5 bg-[#61629F] mx-auto mb-4 group-hover:w-20 transition-all duration-300"></div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3 group-hover:text-[#61629F] transition-colors">Full-Cycle</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         From concept to deployment — we handle everything in-house
                     </p>
@@ -95,27 +87,11 @@
         </div>
 
         <!-- Stats Row -->
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-100 pt-12">
-            <div class="text-center">
-                <div class="text-4xl lg:text-7xl font-bold text-emerald-600">500+</div>
-                <p class="text-gray-500 mt-2">Projects Delivered</p>
-                <div class="w-12 h-0.5 bg-emerald-200 mx-auto mt-2"></div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl lg:text-7xl font-bold text-emerald-600">98%</div>
-                <p class="text-gray-500 mt-2">Client Retention Rate</p>
-                <div class="w-12 h-0.5 bg-emerald-200 mx-auto mt-2"></div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl lg:text-7xl font-bold text-emerald-600">24/7</div>
-                <p class="text-gray-500 mt-2">Premium Support</p>
-                <div class="w-12 h-0.5 bg-emerald-200 mx-auto mt-2"></div>
-            </div>
-        </div>
+       
 
         <!-- CTA Button -->
         <div class="mt-12 text-center">
-            <a href="/contact" class="group inline-flex items-center gap-3 bg-navy-900 text-white px-8 py-3 font-semibold hover:bg-emerald-600 transition-all duration-300">
+            <a href="/contact" class="group inline-flex items-center gap-3 bg-black text-white px-8 py-3 font-semibold hover:bg-[#7B7CB3] transition-all duration-300">
                 <span>Let's Work Together</span>
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -124,3 +100,68 @@
         </div>
     </div>
 </section>
+ <div class="mt-16 bg-black py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="text-4xl lg:text-7xl font-bold text-white">
+                    <span class="counter" data-target="500">0</span>+
+                </div>
+                <p class="text-gray-400 mt-2">Projects Delivered</p>
+                <div class="w-12 h-0.5 bg-[#61629F] mx-auto mt-3"></div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl lg:text-7xl font-bold text-white">
+                    <span class="counter" data-target="98">0</span>%
+                </div>
+                <p class="text-gray-400 mt-2">Client Retention Rate</p>
+                <div class="w-12 h-0.5 bg-[#61629F] mx-auto mt-3"></div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl lg:text-7xl font-bold text-white">
+                    <span class="counter" data-target="24">0</span>/7
+                </div>
+                <p class="text-gray-400 mt-2">Premium Support</p>
+                <div class="w-12 h-0.5 bg-[#61629F] mx-auto mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Counter animation function
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        let current = 0;
+        const increment = target / 50; // Adjust speed here
+        const duration = 2000; // 2 seconds
+        const stepTime = duration / 50;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, stepTime);
+    }
+    
+    // Intersection Observer to trigger animation when visible
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                animateCounter(counter);
+                observer.unobserve(counter); // Stop observing after animation starts
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+</script>
