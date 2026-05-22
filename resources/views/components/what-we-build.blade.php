@@ -29,21 +29,13 @@
         
         <!-- Section Header -->
         <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 mb-6 shadow-lg rounded-full">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.883l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.117l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4z"/>
-                </svg>
-                <span class="text-sm font-semibold uppercase tracking-wider">Ready-to-Launch Websites</span>
-            </div>
+          
             
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display leading-tight">
                 Get Your Website <span class="text-white/90">Today</span>
                 <br>
                 <span class="relative inline-block">
                     <span class="text-white">Launch in Days, Not Months</span>
-                    <svg class="absolute -bottom-3 left-0 w-full" height="8" viewBox="0 0 400 8" preserveAspectRatio="none">
-                        <path d="M0,4 Q100,0 200,4 Q300,8 400,4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </svg>
                 </span>
             </h2>
             
@@ -52,150 +44,6 @@
             <p class="text-white/80 mt-6 max-w-2xl mx-auto text-lg">
                 Pre-built, fully customizable websites ready for you to launch. Choose your niche and go live fast.
             </p>
-        </div>
-
-        <!-- Featured Packages -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            
-            <!-- E-commerce Package -->
-            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                <div class="absolute top-4 right-4 bg-[#61629F] text-white px-3 py-1 text-xs font-bold z-10 rounded-full">
-                    BEST SELLER
-                </div>
-                <div class="relative h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Pre-built E-commerce Website" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
-                                <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
-                            </svg>
-                            <span class="text-white/90 text-sm font-semibold">Ready to Launch</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-1">E-commerce Website</h3>
-                        <p class="text-white/80 text-sm">Fully functional online store with payment gateway</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-white">
-                    <div class="flex items-baseline gap-2 mb-4">
-                        <span class="text-3xl font-bold text-navy-900">$2,500</span>
-                        <span class="text-gray-400 text-sm line-through">$4,999</span>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-2 text-sm mb-4">
-                        <div class="flex items-center gap-1 text-gray-500">
-                            <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                            <span>Up to 500 products</span>
-                        </div>
-                        <div class="flex items-center gap-1 text-gray-500">
-                            <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                            <span>Mobile Responsive</span>
-                        </div>
-                    </div>
-                    <a href="#" class="block w-full text-center bg-[#61629F] text-white py-3 font-semibold rounded-lg hover:bg-[#7B7CB3] transition-all duration-300">
-                        View Demo
-                    </a>
-                </div>
-            </div>
-
-            <!-- Real Estate Package -->
-            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                <div class="relative h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Pre-built Real Estate Website" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                            </svg>
-                            <span class="text-white/90 text-sm font-semibold">Property Listings Ready</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-1">Real Estate Website</h3>
-                        <p class="text-white/80 text-sm">Property listings, agent profiles, mortgage calculator</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-white">
-                    <div class="flex items-baseline gap-2 mb-4">
-                        <span class="text-3xl font-bold text-navy-900">$2,900</span>
-                        <span class="text-gray-400 text-sm line-through">$5,499</span>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-2 text-sm mb-4">
-                        <div class="flex items-center gap-1 text-gray-500">
-                            <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                            <span>IDX Integration</span>
-                        </div>
-                        <div class="flex items-center gap-1 text-gray-500">
-                            <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                            <span>Advanced Search</span>
-                        </div>
-                    </div>
-                    <a href="#" class="block w-full text-center bg-[#61629F] text-white py-3 font-semibold rounded-lg hover:bg-[#7B7CB3] transition-all duration-300">
-                        View Demo
-                    </a>
-                </div>
-            </div>
-
-            <!-- Corporate Package -->
-            <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                <div class="relative h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Pre-built Corporate Website" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2 0H7v2h6v-2z"/>
-                            </svg>
-                            <span class="text-white/90 text-sm font-semibold">Professional & Modern</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-1">Corporate Website</h3>
-                        <p class="text-white/80 text-sm">Complete business website with service pages and blog</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-white">
-                    <div class="flex items-baseline gap-2 mb-4">
-                        <span class="text-3xl font-bold text-navy-900">$3,500</span>
-                        <span class="text-gray-400 text-sm line-through">$6,999</span>
-                    </div>
-                    <div class="flex flex-wrap items-center justify-between gap-2 text-sm mb-4">
-                        <div class="flex items-center gap-1 text-gray-500">
-                            <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                            <span>CMS Included</span>
-                        </div>
-                        <div class="flex items-center gap-1 text-gray-500">
-                            <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                            <span>SEO Optimized</span>
-                        </div>
-                    </div>
-                    <a href="#" class="block w-full text-center bg-[#61629F] text-white py-3 font-semibold rounded-lg hover:bg-[#7B7CB3] transition-all duration-300">
-                        View Demo
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- More Niches Section -->
-        <div class="text-center mb-10">
-            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">More Ready-to-Launch Websites</h3>
-            <div class="w-16 h-0.5 bg-white/30 mx-auto mb-4"></div>
-            <p class="text-white/70">All templates are fully customizable and include 1 month of free support</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
