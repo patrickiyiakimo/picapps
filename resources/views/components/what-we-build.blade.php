@@ -357,10 +357,14 @@
         </div>
 
         <!-- Bottom CTA -->
-        <div class="relative bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-10 md:p-12 text-center overflow-hidden group">
-            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+<div class="relative bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden group">
+    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+    
+    <div class="relative z-10 p-8 md:p-12">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             
-            <div class="relative z-10">
+            <!-- Left Side - Content -->
+            <div class="flex-1 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 bg-[#61629F] text-white px-4 py-2 mb-6 shadow-lg rounded-full">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.883l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.117l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4z"/>
@@ -372,12 +376,13 @@
                     Choose Your <span class="text-white">Ready-to-Launch Website</span>
                 </h3>
                 
-                <p class="text-white/80 mb-8 max-w-2xl mx-auto">
+                <p class="text-white/80 mb-8 max-w-lg">
                     All websites come fully functional. You only need to add your content and branding.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/shop" class="inline-flex items-center gap-2 bg-[#61629F] text-white px-8 py-3 font-semibold rounded-lg hover:bg-[#7B7CB3] transition-all duration-300 transform hover:scale-105 shadow-lg group">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <!-- Black Button -->
+                    <a href="/shop" class="inline-flex items-center gap-2 bg-black text-white px-8 py-3 font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg group">
                         View All Templates
                         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -391,7 +396,14 @@
                     </a>
                 </div>
             </div>
+            
+            <!-- Right Side - Image -->
+            <div class="flex-shrink-0 lg:w-1/3">
+                <img src="{{ asset('/images/Group 20.png') }}" alt="Ready-to-Launch Websites" class="w-full h-auto rounded-lg">
+            </div>
         </div>
+    </div>
+</div>
     </div>
 </section>
 
@@ -424,9 +436,9 @@
     }
     
     /* Rounded corners for cards */
-    .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-full {
+    /* .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-full {
         border-radius: 12px !important;
-    }
+    } */
     
     /* Keep some elements circular */
     .rounded-full[class*="rounded-full"] {
