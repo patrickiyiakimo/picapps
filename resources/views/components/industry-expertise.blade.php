@@ -36,7 +36,7 @@
             <!-- Industry 1: Education -->
             <div class="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                    <img src="/images/Rectangle 11.png" 
                          alt="Education Industry" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/40 to-transparent group-hover:bg-gradient-to-t group-hover:from-[#61629F]/80 group-hover:via-[#61629F]/40 transition-all duration-500"></div>
@@ -50,7 +50,7 @@
             <!-- Industry 2: Textile -->
             <div class="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1584583570842-32c0c34d0f7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                    <img src="/images/Rectangle 18.png" 
                          alt="Textile Industry" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/40 to-transparent group-hover:bg-gradient-to-t group-hover:from-[#61629F]/80 group-hover:via-[#61629F]/40 transition-all duration-500"></div>
@@ -106,7 +106,7 @@
             <!-- Industry 6: Recruitment -->
             <div class="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1565688534249-e1752ae0dab9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                    <img src="/images/Rectangle 14.png" 
                          alt="Recruitment Industry" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/40 to-transparent group-hover:bg-gradient-to-t group-hover:from-[#61629F]/80 group-hover:via-[#61629F]/40 transition-all duration-500"></div>
@@ -134,7 +134,7 @@
             <!-- Industry 8: Stock Market -->
             <div class="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                    <img src="/images/Rectangle 12.png" 
                          alt="Stock Market Industry" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/40 to-transparent group-hover:bg-gradient-to-t group-hover:from-[#61629F]/80 group-hover:via-[#61629F]/40 transition-all duration-500"></div>
