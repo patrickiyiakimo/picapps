@@ -24,7 +24,7 @@
                 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                    <a href="/contact" class="group inline-flex items-center justify-center gap-2 bg-[#61629F] text-white px-8 py-4 font-semibold hover:bg-[#7B7CB3] transition-all duration-300 shadow-lg rounded-lg">
+                    <a href="/contact" class="group inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 font-semibold hover:bg-[#7B7CB3] transition-all duration-300 shadow-lg rounded-lg">
                         Start Your Project
                         <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -42,7 +42,7 @@
             <!-- Right Side - Image -->
             <div class="flex-1 flex justify-center lg:justify-end">
                 <div class="relative">
-                    <img src="{{ asset('/images/Group 20.png') }}" alt="Consultation Illustration" class="w-full max-w-md h-auto">
+                    <img src="{{ asset('/images/Group 21.png') }}" alt="Consultation Illustration" class="w-full max-w-md h-auto">
                 </div>
             </div>
         </div>
