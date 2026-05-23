@@ -71,13 +71,6 @@
                         </div>
                     </div>
                     
-                    <!-- Floating Element - Code Icon -->
-                    <div class="absolute top-0 -left-6 z-10 animate-float-slow-reverse opacity-70 hidden sm:block">
-                        <svg class="w-10 h-10 sm:w-12 sm:h-12 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
-                    </div>
-                    
                     <!-- Floating Element - Sparkle -->
                     <div class="absolute bottom-0 -right-6 z-10 animate-pulse hidden sm:block">
                         <svg class="w-8 h-8 text-white/60" fill="currentColor" viewBox="0 0 24 24">
