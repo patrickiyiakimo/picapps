@@ -199,7 +199,7 @@
                 </div>
                 
                 <!-- Right Side - Larger Image -->
-                <div class="flex-shrink-0 hidden md:block">
+                <div class="flex-shrink-0">
                     <img src="{{ asset('/images/Group 4.png') }}" alt="Design Illustration" class="w-64 md:w-80 lg:w-96 h-auto">
                 </div>
             </div>
