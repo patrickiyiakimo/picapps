@@ -137,7 +137,7 @@
         
         <!-- Sign Up Button -->
         <button type="submit" 
-                class="w-full bg-[#61629F] text-white py-4 font-semibold uppercase tracking-wider text-sm hover:bg-[#7B7CB3] transition-all duration-300 group">
+                class="w-full bg-white text-black py-4 font-semibold uppercase tracking-wider text-sm hover:border-[#61629F] transition-all duration-300 group">
           <span class="inline-flex items-center gap-2">
             Sign Up
             <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,8 +149,8 @@
         <!-- Privacy Notice -->
         <p class="text-gray-500 text-xs text-center leading-relaxed pt-2">
           We respect your privacy—learn how we collect, use, and protect your data in our 
-          <a href="#" class="text-[#61629F] hover:text-[#7B7CB3] transition-colors">Privacy Policy</a> and 
-          <a href="#" class="text-[#61629F] hover:text-[#7B7CB3] transition-colors">Terms of Use</a>.
+          <a href="#" class="text-white hover:text-[#7B7CB3] transition-colors">Privacy Policy</a> and 
+          <a href="#" class="text-white hover:text-[#7B7CB3] transition-colors">Terms of Use</a>.
         </p>
       </form>
     </div>

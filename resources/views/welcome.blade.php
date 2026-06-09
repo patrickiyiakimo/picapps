@@ -43,6 +43,9 @@
         <!-- Newsletter CTA Section -->
         @include('components.newsletter-cta')
 
+        <!-- Blog Section -->
+        @include('components.blogs-section')
+
         <!-- CTA Section -->
         @include('components.cta')
     </main>

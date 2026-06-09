@@ -58,6 +58,7 @@
 </head>
 <body style="font-family: 'Inter', sans-serif; background: #fff;">
 
+
 <section class="hero-wrapper relative min-h-screen flex items-center bg-white">
   <div class="w-full mx-auto px-5 sm:px-8 ">
     <div class="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-16">
