@@ -8,9 +8,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        // Primary display font for BIG headlines (9xl, 10xl, etc.)
+        'display': ['Clash Display', 'Bricolage Grotesque', 'sans-serif'],
+        
+        // Secondary display for subheadings and professional text
+        'heading': ['Space Grotesk', 'sans-serif'],
+        
+        // Body text - clean and readable
         'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'display': ['Bricolage Grotesque', 'sans-serif'],
-        'space': ['Space Grotesk', 'sans-serif'], // Added Space Grotesk
+        
         'mono': ['ui-monospace', 'monospace'],
       },
       colors: {

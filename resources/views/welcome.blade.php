@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta - Digital Agency</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+   <!-- Clash Display - Modern, geometric, professional -->
+<link href="https://fonts.cdnfonts.com/css/clash-display" rel="stylesheet">
 
+<!-- Alternative: Sentient (equally beautiful) -->
+<!-- <link href="https://fonts.cdnfonts.com/css/sentient" rel="stylesheet"> -->
 
+<!-- Keep your existing Space Grotesk and Bricolage -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white font-sans">
@@ -19,7 +21,10 @@
     <main>
         <!-- Hero Section - Full width, no container -->
         @include('components.hero')
-        
+
+        <!-- Trust section -->
+        @include('components.trust-section')
+
         <!-- Services Section -->
         @include('components.services')
         
@@ -29,14 +34,14 @@
         <!-- Industry Expertise Section -->
         @include('components.industry-expertise')
         
-        <!-- Tools/Technologies Section -->
-        @include('components.tools')
-        
         <!-- What We Build Section (Pre-built websites) -->
         @include('components.what-we-build')
 
         <!-- Testimonials Section -->
         @include('components.testimonials')
+
+        <!-- Newsletter CTA Section -->
+        @include('components.newsletter-cta')
 
         <!-- CTA Section -->
         @include('components.cta')
