@@ -168,13 +168,13 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="/shop" class="inline-flex items-center justify-center gap-2 bg-[#61629F] text-white px-8 py-3.5 font-semibold text-sm hover:bg-[#7B7CB3] transition-all duration-300 group">
+              <a href="/shop" class="inline-flex items-center uppercase justify-center gap-2 bg-[#61629F] text-white px-8 py-3.5 font-semibold text-sm hover:bg-[#7B7CB3] transition-all duration-300 group">
                 <span>View All Templates</span>
                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                 </svg>
               </a>
-              <a href="/custom" class="inline-flex items-center justify-center gap-2 border border-gray-700 text-gray-300 px-8 py-3.5 font-semibold text-sm hover:border-[#61629F] hover:text-[#61629F] transition-all duration-300">
+              <a href="/custom" class="inline-flex items-center uppercase justify-center gap-2 border border-gray-700 text-gray-300 px-8 py-3.5 font-semibold text-sm hover:border-[#61629F] hover:text-[#61629F] transition-all duration-300">
                 <span>Need Custom? Get Quote</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -183,13 +183,7 @@
             </div>
           </div>
           
-          <div class="flex-shrink-0">
-            <div class="w-48 h-48 md:w-56 md:h-56 bg-gray-900 flex items-center justify-center border border-gray-700">
-              <svg class="w-24 h-24 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

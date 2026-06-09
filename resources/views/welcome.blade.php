@@ -50,9 +50,6 @@
         @include('components.cta')
     </main>
     
-    <!-- Chatbot -->
-    @include('components.chatbot')
-    
     <!-- Footer (create this if you haven't) -->
     @include('layouts.footer')
 </body>

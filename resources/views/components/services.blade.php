@@ -249,85 +249,101 @@
               </a>
             </div>
             
-            <div class="flex-shrink-0">
-              <div class="w-64 h-64 bg-white/5 flex items-center justify-center border border-white/20">
-                <svg class="w-32 h-32 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
     </div>
 
     <!-- Process Section -->
-    <div class="mt-20">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 bg-black text-white px-4 py-2 mb-4 border border-black">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-          </svg>
-          <span class="text-sm font-semibold uppercase tracking-wide">How We Work</span>
+<div class="mt-20">
+  <div class="text-center mb-16">
+    <div class="inline-flex items-center gap-2 bg-white border border-gray-200 px-5 py-2 mb-6">
+      <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+      </svg>
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">How We Work</span>
+    </div>
+    
+    <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 font-display tracking-tight">
+      Our <span class="text-gray-400">Process</span>
+    </h3>
+    
+    <div class="w-16 h-px bg-black mx-auto mb-6"></div>
+    
+    <p class="text-gray-500 max-w-2xl mx-auto text-base">
+      A streamlined approach to bring your ideas to life with precision and care.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+    
+    <!-- Step 1 -->
+    <div class="group relative bg-white border border-gray-200 hover:border-black transition-all duration-300 p-8">
+      <div class="absolute top-6 right-6">
+        <div class="w-12 h-12 bg-gray-100 flex items-center justify-center group-hover:bg-black transition-all duration-300">
+          <span class="text-xl font-bold text-black group-hover:text-white transition-colors">01</span>
         </div>
-        <h3 class="text-3xl md:text-4xl font-bold text-black mb-4 uppercase">Our <span class="text-black">Process</span></h3>
-        <div class="w-20 h-0.5 bg-black mx-auto mb-6"></div>
-        <p class="text-gray-500 max-w-2xl mx-auto text-sm uppercase tracking-wide">
-          A STREAMLINED APPROACH TO BRING YOUR IDEAS TO LIFE
+      </div>
+      
+      <div class="mt-12">
+        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-black uppercase tracking-wide">Discovery</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          We dive deep into understanding your goals, requirements, and vision for the project.
         </p>
       </div>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-0 border border-black">
-        <div class="text-center group p-8 border-r border-black last:border-r-0 hover:bg-black transition-all duration-300 relative">
-          <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 z-10">
-            <svg class="w-6 h-6 text-black group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </div>
-          
-          <div class="w-20 h-20 bg-gray-100 flex items-center justify-center mx-auto mb-5 group-hover:bg-white transition-all duration-300 border border-black">
-            <span class="text-3xl font-bold text-black group-hover:text-black transition-colors">1</span>
-          </div>
-          <h4 class="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors uppercase tracking-wide">Discovery</h4>
-          <p class="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Understanding your goals, requirements, and vision</p>
-        </div>
-
-        <div class="text-center group p-8 border-r border-black last:border-r-0 hover:bg-black transition-all duration-300 relative">
-          <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 z-10">
-            <svg class="w-6 h-6 text-black group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </div>
-          
-          <div class="w-20 h-20 bg-gray-100 flex items-center justify-center mx-auto mb-5 group-hover:bg-white transition-all duration-300 border border-black">
-            <span class="text-3xl font-bold text-black group-hover:text-black transition-colors">2</span>
-          </div>
-          <h4 class="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors uppercase tracking-wide">Design</h4>
-          <p class="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Creating wireframes, prototypes, and stunning UI/UX designs</p>
-        </div>
-
-        <div class="text-center group p-8 border-r border-black last:border-r-0 hover:bg-black transition-all duration-300 relative">
-          <div class="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 z-10">
-            <svg class="w-6 h-6 text-black group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </div>
-          
-          <div class="w-20 h-20 bg-gray-100 flex items-center justify-center mx-auto mb-5 group-hover:bg-white transition-all duration-300 border border-black">
-            <span class="text-3xl font-bold text-black group-hover:text-black transition-colors">3</span>
-          </div>
-          <h4 class="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors uppercase tracking-wide">Development</h4>
-          <p class="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Building your product with clean, scalable, and efficient code</p>
-        </div>
-
-        <div class="text-center group p-8 hover:bg-black transition-all duration-300">
-          <div class="w-20 h-20 bg-gray-100 flex items-center justify-center mx-auto mb-5 group-hover:bg-white transition-all duration-300 border border-black">
-            <span class="text-3xl font-bold text-black group-hover:text-black transition-colors">4</span>
-          </div>
-          <h4 class="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors uppercase tracking-wide">Launch & Support</h4>
-          <p class="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">Deployment, testing, and ongoing maintenance with 24/7 support</p>
+    <!-- Step 2 -->
+    <div class="group relative bg-white border border-gray-200 hover:border-black transition-all duration-300 p-8">
+      <div class="absolute top-6 right-6">
+        <div class="w-12 h-12 bg-gray-100 flex items-center justify-center group-hover:bg-black transition-all duration-300">
+          <span class="text-xl font-bold text-black group-hover:text-white transition-colors">02</span>
         </div>
       </div>
+      
+      <div class="mt-12">
+        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-black uppercase tracking-wide">Design</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          We create wireframes, prototypes, and stunning UI/UX designs tailored to your brand.
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="group relative bg-white border border-gray-200 hover:border-black transition-all duration-300 p-8">
+      <div class="absolute top-6 right-6">
+        <div class="w-12 h-12 bg-gray-100 flex items-center justify-center group-hover:bg-black transition-all duration-300">
+          <span class="text-xl font-bold text-black group-hover:text-white transition-colors">03</span>
+        </div>
+      </div>
+      
+      <div class="mt-12">
+        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-black uppercase tracking-wide">Development</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          We build your product with clean, scalable, and efficient code using modern technologies.
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="group relative bg-white border border-gray-200 hover:border-black transition-all duration-300 p-8">
+      <div class="absolute top-6 right-6">
+        <div class="w-12 h-12 bg-gray-100 flex items-center justify-center group-hover:bg-black transition-all duration-300">
+          <span class="text-xl font-bold text-black group-hover:text-white transition-colors">04</span>
+        </div>
+      </div>
+      
+      <div class="mt-12">
+        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-black uppercase tracking-wide">Launch & Support</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          We handle deployment, testing, and provide ongoing maintenance with dedicated support.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
     </div>
     
   </div>
