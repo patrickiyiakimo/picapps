@@ -102,11 +102,6 @@
   <div class="relative z-10 w-full mx-auto px-5 sm:px-8 lg:px-12 py-16 md:py-20">
     <div class="max-w-5xl mx-auto text-center">
       
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2 mb-8 fade-in-up" style="animation-delay: 0s;">
-        <span class="w-1.5 h-1.5 bg-white"></span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-white/80">Digital Innovation Agency</span>
-      </div>
       
       <!-- Main Heading -->
       <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.15] mb-8 fade-in-up" style="animation-delay: 0.1s;">

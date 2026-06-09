@@ -47,17 +47,17 @@
     .nav-link, 
     .desktop-nav .group > a,
     .desktop-nav .relative.group > a,
-    .lang-btn, .search-btn, .login-link,
+    .lang-btn, .login-link,
     .mobile-nav-link,
     .mobile-dropdown-btn {
-      color: #cbd5e1 !important;   /* gray-300 / soft gray */
+      color: #cbd5e1 !important;
     }
 
     /* hover effect: lighter gray + subtle brand accent */
     .nav-link:hover,
     .desktop-nav .group > a:hover,
     .desktop-nav .relative.group > a:hover,
-    .lang-btn:hover, .search-btn:hover, .login-link:hover,
+    .lang-btn:hover, .login-link:hover,
     .mobile-nav-link:hover,
     .mobile-dropdown-btn:hover {
       color: #ffffff !important;
@@ -129,97 +129,101 @@
 </head>
 <body style="font-family: 'Inter', sans-serif; background: #f8f9fc;">
 
-<nav id="main-navbar" class="sticky top-0 z-50 bg-black transition-all duration-300 w-full uppercase">
+<nav id="main-navbar" class="sticky top-0 z-50 bg-black transition-all duration-300 w-full">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
     <div class="flex justify-between items-center h-16 md:h-20">
       
-      <!-- Logo / Brand -->
+      <!-- Logo / Brand - Left -->
       <div class="flex items-center">
         <a href="/" class="logo-link flex items-center font-bold text-2xl tracking-tight">
           ALTA
         </a>
       </div>
 
-      <!-- DESKTOP NAVIGATION (simplified, 3 main pillars) -->
-      <div class="hidden lg:flex items-center space-x-1 desktop-nav">
-        
-        <!-- MOBILE APPS (core dropdown) -->
-        <div class="relative group">
-          <a href="/mobile-apps" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
-            Mobile Apps
-            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </a>
-          <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-2 flex flex-col">
-              <a href="/mobile/ios" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">iOS Development</a>
-              <a href="/mobile/android" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Android Development</a>
-              <a href="/mobile/cross-platform" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Flutter & React Native</a>
-              <a href="/mobile/pwa" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Progressive Web Apps</a>
+      <!-- DESKTOP NAVIGATION - Centered using absolute positioning -->
+      <div class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
+        <div class="flex items-center space-x-1 desktop-nav">
+          
+          <!-- MOBILE APPS -->
+          <div class="relative group">
+            <a href="/mobile-apps" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+              Mobile Apps
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2 flex flex-col">
+                <a href="/mobile/ios" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">iOS Development</a>
+                <a href="/mobile/android" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Android Development</a>
+                <a href="/mobile/cross-platform" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Flutter & React Native</a>
+                <a href="/mobile/pwa" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Progressive Web Apps</a>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- WEBSITES (core) -->
-        <div class="relative group">
-          <a href="/websites" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
-            Websites
-            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </a>
-          <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-2">
-              <a href="/websites/corporate" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Corporate & Business</a>
-              <a href="/websites/ecommerce" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">E‑commerce Platforms</a>
-              <a href="/websites/custom-webapps" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Custom Web Applications</a>
-              <a href="/websites/cms" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">CMS (Sanity, WordPress, Webflow)</a>
+          
+          <!-- WEBSITES -->
+          <div class="relative group">
+            <a href="/websites" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+              Websites
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2">
+                <a href="/websites/corporate" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Corporate & Business</a>
+                <a href="/websites/ecommerce" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">E‑commerce Platforms</a>
+                <a href="/websites/custom-webapps" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Custom Web Applications</a>
+                <a href="/websites/cms" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">CMS Solutions</a>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- FIGMA DESIGN / TEMPLATES (strategic awareness) -->
-        <div class="relative group">
-          <a href="/figma-design" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
-            Figma Design
-            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </a>
-          <div class="dropdown-panel absolute top-full left-0 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-2">
-              <a href="/figma/templates" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">UI Kits & Templates</a>
-              <a href="/figma/custom-design" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Custom App/Web Design</a>
-              <a href="/figma/design-to-code" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Figma → Code (Pixel Perfect)</a>
-              <div class="border-t border-gray-800 my-1 mx-4"></div>
-              <div class="px-5 py-2 text-xs text-gray-400 italic">No Figma file? We'll create it for you.</div>
+          
+          <!-- FIGMA DESIGN -->
+          <div class="relative group">
+            <a href="/figma-design" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+              Figma Design
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <div class="dropdown-panel absolute top-full left-0 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2">
+                <a href="/figma/templates" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">UI Kits & Templates</a>
+                <a href="/figma/custom-design" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Custom App/Web Design</a>
+                <a href="/figma/design-to-code" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Figma → Code</a>
+                <div class="border-t border-gray-800 my-1 mx-4"></div>
+                <div class="px-5 py-2 text-xs text-gray-400 italic">No Figma file? We'll create it.</div>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Minimal secondary links (Work, Resources) combine for clarity -->
-        <a href="/portfolio" class="nav-link relative px-4 py-2 font-medium text-sm transition-colors duration-200">Work</a>
-        
-        <div class="relative group">
-          <a href="/insights" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
-            Insights
-            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </a>
-          <div class="dropdown-panel absolute top-full left-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-2">
-              <a href="/blog" class="dropdown-link block px-5 py-2.5 text-sm">Blog</a>
-              <a href="/case-studies" class="dropdown-link block px-5 py-2.5 text-sm">Case studies</a>
-              <a href="/guides" class="dropdown-link block px-5 py-2.5 text-sm">Guides</a>
+          
+          <!-- Work -->
+          <a href="/portfolio" class="nav-link relative px-4 py-2 font-medium text-sm transition-colors duration-200">Work</a>
+          
+          <!-- Insights -->
+          <div class="relative group">
+            <a href="/insights" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+              Insights
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <div class="dropdown-panel absolute top-full left-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2">
+                <a href="/blog" class="dropdown-link block px-5 py-2.5 text-sm">Blog</a>
+                <a href="/case-studies" class="dropdown-link block px-5 py-2.5 text-sm">Case Studies</a>
+                <a href="/guides" class="dropdown-link block px-5 py-2.5 text-sm">Guides</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right side: CTA + language + login (professional, minimal) -->
+      <!-- Right side: CTA / User Menu - Professional -->
       <div class="hidden lg:flex items-center space-x-5">
+        <!-- Language Switcher -->
         <div class="relative group">
           <button class="lang-btn flex items-center gap-1 text-sm font-medium transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -237,22 +241,49 @@
           </div>
         </div>
         
-        <button class="search-btn p-1 transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </button>
-        
-        <a href="/contact" class=" px-5 py-2 bg-white text-black uppercase text-sm font-semibold transition-all duration-200">
-          Start a Project
-        </a>
-        
-        <a href="/login" class="login-link flex items-center gap-1.5 text-sm font-medium transition-colors border-l border-gray-700 pl-5">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-          </svg>
-          <span>Login</span>
-        </a>
+        <!-- Conditional: If logged in, show user menu; else show login and CTA -->
+        @auth
+          <!-- User Dropdown for Logged In Users -->
+          <div class="relative group">
+            <button class="flex items-center gap-2 text-sm font-medium transition-colors text-gray-300 hover:text-white">
+              <div class="w-8 h-8 bg-gray-700 flex items-center justify-center text-white text-xs font-semibold">
+                {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+              </div>
+              <span class="hidden xl:inline">{{ Auth::user()->name }}</span>
+              <svg class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="dropdown-panel absolute top-full right-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2">
+                <a href="/dashboard" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Dashboard</a>
+                <a href="/profile" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Profile Settings</a>
+                <a href="/projects" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">My Projects</a>
+                <a href="/billing" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Billing</a>
+                <div class="border-t border-gray-800 my-1 mx-4"></div>
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit" class="dropdown-link block w-full text-left px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-red-500 text-red-400 hover:text-red-300">
+                    Logout
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        @else
+          <!-- Login Link for Guests -->
+          <a href="/login" class="login-link flex items-center gap-1.5 text-sm font-medium transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <span>Login</span>
+          </a>
+          
+          <!-- Start a Project Button -->
+          <a href="/contact" class="btn-project px-5 py-2 text-sm font-semibold transition-all duration-200 uppercase tracking-wide">
+            Start a Project
+          </a>
+        @endauth
       </div>
 
       <!-- Mobile Menu Toggle (hamburger) -->
@@ -266,10 +297,23 @@
     </div>
   </div>
 
-  <!-- MOBILE MENU (simplified, clean) -->
+  <!-- MOBILE MENU -->
   <div id="mobile-menu" class="lg:hidden hidden fixed left-0 right-0 top-16 md:top-20 bottom-0 z-[999] overflow-y-auto px-5 py-5">
     <div class="flex flex-col space-y-5">
-      <!-- core mobile items -->
+      
+      @auth
+        <!-- Logged In User Info on Mobile -->
+        <div class="flex items-center gap-3 pb-4 border-b border-gray-800">
+          <div class="w-10 h-10 bg-gray-700 flex items-center justify-center text-white font-semibold">
+            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+          </div>
+          <div>
+            <p class="text-white font-medium">{{ Auth::user()->name }}</p>
+            <p class="text-gray-500 text-sm">{{ Auth::user()->email }}</p>
+          </div>
+        </div>
+      @endauth
+      
       <div class="mobile-dropdown border-b border-gray-800 pb-2">
         <button class="mobile-dropdown-btn flex justify-between items-center w-full py-2 text-base font-medium">
           Mobile Apps
@@ -317,8 +361,18 @@
 
       <a href="/portfolio" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Work</a>
       <a href="/insights" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Insights</a>
-      <a href="/contact" class="bg-white text-black text-center font-semibold py-3 mt-2 w-full transition hover:bg-gray-200">Start a Project</a>
-      <a href="/login" class="text-center text-gray-400 py-2 text-sm mt-1">Client Login →</a>
+      
+      @auth
+        <a href="/dashboard" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Dashboard</a>
+        <a href="/profile" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Profile Settings</a>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="w-full text-left text-red-400 py-3 text-sm font-medium">Logout →</button>
+        </form>
+      @else
+        <a href="/contact" class="bg-white text-black text-center font-semibold py-3 mt-2 w-full transition hover:bg-gray-200">Start a Project</a>
+        <a href="/login" class="text-center text-gray-400 py-2 text-sm mt-1">Client Login →</a>
+      @endauth
     </div>
   </div>
 </nav>
