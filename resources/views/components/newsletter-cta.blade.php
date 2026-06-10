@@ -99,7 +99,7 @@
       </div>
       
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 font-display tracking-tight">
-        Become a <span class="text-[#61629F]">Visuable Insider</span>
+        Become a <span class="text-gray-400">Visuable Insider</span>
       </h2>
       
       <div class="w-16 h-px bg-[#61629F] mx-auto mb-6"></div>

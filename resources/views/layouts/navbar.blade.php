@@ -146,30 +146,29 @@
           
           <!-- MOBILE APPS -->
           <div class="relative group">
-            <a href="/mobile-apps" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+            <span class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
               Mobile Apps
               <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
-            </a>
+            </span>
             <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="py-2 flex flex-col">
                 <a href="/mobile/ios" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">iOS Development</a>
                 <a href="/mobile/android" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Android Development</a>
-                <a href="/mobile/cross-platform" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Flutter & React Native</a>
-                <a href="/mobile/pwa" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500 transition-all">Progressive Web Apps</a>
+               
               </div>
             </div>
           </div>
           
           <!-- WEBSITES -->
           <div class="relative group">
-            <a href="/websites" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+            <span class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
               Websites
               <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
-            </a>
+            </span>
             <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="py-2">
                 <a href="/websites/corporate" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Corporate & Business</a>
@@ -182,12 +181,12 @@
           
           <!-- FIGMA DESIGN -->
           <div class="relative group">
-            <a href="/figma-design" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+            <span class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
               Figma Design
               <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
-            </a>
+            </span>
             <div class="dropdown-panel absolute top-full left-0 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="py-2">
                 <a href="/figma/templates" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">UI Kits & Templates</a>
@@ -202,22 +201,7 @@
           <!-- Work -->
           <a href="/portfolio" class="nav-link relative px-4 py-2 font-medium text-sm transition-colors duration-200">Work</a>
           
-          <!-- Insights -->
-          <div class="relative group">
-            <a href="/insights" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
-              Insights
-              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </a>
-            <div class="dropdown-panel absolute top-full left-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div class="py-2">
-                <a href="/blog" class="dropdown-link block px-5 py-2.5 text-sm">Blog</a>
-                <a href="/case-studies" class="dropdown-link block px-5 py-2.5 text-sm">Case Studies</a>
-                <a href="/guides" class="dropdown-link block px-5 py-2.5 text-sm">Guides</a>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
 
@@ -280,7 +264,7 @@
           </a>
           
           <!-- Start a Project Button -->
-          <a href="/contact" class="btn-project px-5 py-2 text-sm font-semibold transition-all duration-200 uppercase tracking-wide">
+          <a href="/contact" class="bg-white text-gray-900 hover:bg-gray-200 px-5 py-2 text-sm font-semibold transition-all duration-200 uppercase tracking-wide">
             Start a Project
           </a>
         @endauth
@@ -324,8 +308,7 @@
         <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2.5">
           <a href="/mobile/ios" class="block py-1 text-sm text-gray-400 hover:text-white">iOS Development</a>
           <a href="/mobile/android" class="block py-1 text-sm text-gray-400 hover:text-white">Android Development</a>
-          <a href="/mobile/cross-platform" class="block py-1 text-sm text-gray-400 hover:text-white">Cross-Platform (Flutter/RN)</a>
-          <a href="/mobile/pwa" class="block py-1 text-sm text-gray-400 hover:text-white">Progressive Web Apps</a>
+         
         </div>
       </div>
 
@@ -360,7 +343,7 @@
       </div>
 
       <a href="/portfolio" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Work</a>
-      <a href="/insights" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Insights</a>
+      
       
       @auth
         <a href="/dashboard" class="mobile-nav-link py-2 text-base font-medium border-b border-gray-800">Dashboard</a>

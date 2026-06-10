@@ -3,340 +3,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Alta Digital Agency</title>
+    <title>Blog · ALTA Digital Agency</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-white font-sans">
     
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+        }
+        
+        a, button, div, img, input {
+            border-radius: 0 !important;
+        }
+        
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .category-btn.active {
+            background: #000000;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
     @include('layouts.navbar')
 
-    <!-- Hero Section -->
-    <div class="relative bg-gradient-to-br from-navy-900 to-navy-800 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-emerald-600/20 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-emerald-600/10 to-transparent"></div>
-            <svg class="absolute bottom-0 left-0 w-full h-32 text-white" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-            </svg>
+    <!-- Hero Section - Black/White Professional -->
+    <section class="relative bg-black min-h-[400px] flex items-center">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         </div>
         
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div class="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 py-20">
             <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm text-emerald-300 px-4 py-2 mb-6 border border-emerald-500/30">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M18 13v5a2 2 0 01-2 2H4a2 2 0 01-2-2v-5m16 0h-4m4 0l-8-4-8 4m8-4V3" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="text-sm font-semibold uppercase tracking-wider">Latest Insights</span>
-                </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display">
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-display tracking-tight">
                     Thoughts, Ideas & 
-                    <span class="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Digital Insights</span>
+                    <span class="text-white/60">Digital Insights</span>
                 </h1>
-                <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed">
                     Expert advice, industry trends, and practical tips for your digital journey.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Featured Post -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="relative overflow-hidden border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-500">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-                <div class="relative h-64 lg:h-auto overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                         alt="Featured post" 
-                         class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-emerald-600 text-white text-xs px-3 py-1">Featured</span>
-                    </div>
-                </div>
-                <div class="p-8 flex flex-col justify-center">
-                    <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
-                        <span>📅 March 15, 2024</span>
-                        <span>📖 8 min read</span>
-                        <span>🏷️ Web Development</span>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-4 hover:text-emerald-600 transition">
-                        <a href="#">The Future of Web Development: Trends to Watch in 2024</a>
-                    </h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Explore the emerging technologies and methodologies that are shaping the future of web development, from AI-powered tools to serverless architecture.
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-10 h-10 rounded-full object-cover">
-                            <div>
-                                <p class="text-sm font-semibold text-navy-900">John Anderson</p>
-                                <p class="text-xs text-gray-500">Founder & CEO</p>
-                            </div>
-                        </div>
-                        <a href="#" class="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-500">
-                            Read More
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+    <!-- Blog Posts Section -->
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+        
+        <!-- Category Filters -->
+        <div class="border-b border-gray-200 mb-8">
+            <div class="flex flex-wrap gap-2 pb-4">
+                <button class="category-btn active px-4 py-2 text-sm font-medium bg-black text-white transition" data-category="all">All Posts</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="web-development">Web Development</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="mobile-apps">Mobile Apps</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="ecommerce">E-commerce</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="ui-ux">UI/UX Design</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="seo">SEO & Marketing</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="ai-tech">AI & Tech</button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="business">Business</button>
             </div>
         </div>
-    </div>
 
-    <!-- Category Filters -->
-    <div class="border-b border-gray-200 bg-white sticky top-16 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap gap-2 py-4">
-                <button class="category-btn active px-4 py-2 text-sm font-medium bg-emerald-600 text-white transition">All Posts</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">Web Development</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">Mobile Apps</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">E-commerce</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">UI/UX Design</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">SEO & Marketing</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">AI & Tech</button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition">Business</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Blog Posts Grid -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Blog Posts Grid -->
+        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <!-- Post 1 -->
-            <article class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
-                <div class="relative h-56 overflow-hidden">
+            <!-- Post 1 - Web Development -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="web-development">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="Laravel best practices" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute top-3 left-3">
-                        <span class="bg-emerald-600 text-white text-xs px-2 py-1">Web Development</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">Web Development</span>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span>📅 Mar 10, 2024</span>
-                        <span>⏱️ 6 min read</span>
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>March 10, 2024</span>
+                        <span>•</span>
+                        <span>6 min read</span>
                     </div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-2 group-hover:text-emerald-600 transition">
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
                         <a href="#">10 Laravel Best Practices for 2024</a>
                     </h3>
-                    <p class="text-gray-500 text-sm mb-4">
-                        Learn the essential Laravel best practices to write cleaner, more maintainable, and secure code.
-                    </p>
+                    <p class="text-gray-500 text-sm mb-4">Learn the essential Laravel best practices to write cleaner, more maintainable, and secure code.</p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-6 h-6 rounded-full object-cover">
-                            <span class="text-xs text-gray-600">John Anderson</span>
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">JA</div>
+                            <span class="text-xs text-gray-500">John Anderson</span>
                         </div>
-                        <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-500">Read →</a>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Post 2 -->
-            <article class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
-                <div class="relative h-56 overflow-hidden">
+            <!-- Post 2 - Mobile Apps -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="mobile-apps">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
                     <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="Flutter vs React Native" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute top-3 left-3">
-                        <span class="bg-emerald-600 text-white text-xs px-2 py-1">Mobile Apps</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">Mobile Apps</span>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span>📅 Mar 5, 2024</span>
-                        <span>⏱️ 10 min read</span>
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>March 5, 2024</span>
+                        <span>•</span>
+                        <span>10 min read</span>
                     </div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-2 group-hover:text-emerald-600 transition">
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
                         <a href="#">Flutter vs React Native: Which One to Choose?</a>
                     </h3>
-                    <p class="text-gray-500 text-sm mb-4">
-                        A comprehensive comparison of the two leading cross-platform mobile development frameworks.
-                    </p>
+                    <p class="text-gray-500 text-sm mb-4">A comprehensive comparison of the two leading cross-platform mobile development frameworks.</p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-6 h-6 rounded-full object-cover">
-                            <span class="text-xs text-gray-600">Sarah Chen</span>
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">SC</div>
+                            <span class="text-xs text-gray-500">Sarah Chen</span>
                         </div>
-                        <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-500">Read →</a>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Post 3 -->
-            <article class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
-                <div class="relative h-56 overflow-hidden">
+            <!-- Post 3 - E-commerce -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="ecommerce">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
                     <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="E-commerce trends" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute top-3 left-3">
-                        <span class="bg-emerald-600 text-white text-xs px-2 py-1">E-commerce</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">E-commerce</span>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span>📅 Feb 28, 2024</span>
-                        <span>⏱️ 7 min read</span>
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>February 28, 2024</span>
+                        <span>•</span>
+                        <span>7 min read</span>
                     </div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-2 group-hover:text-emerald-600 transition">
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
                         <a href="#">E-commerce Trends That Will Dominate 2024</a>
                     </h3>
-                    <p class="text-gray-500 text-sm mb-4">
-                        Discover the latest e-commerce trends and strategies to boost your online sales this year.
-                    </p>
+                    <p class="text-gray-500 text-sm mb-4">Discover the latest e-commerce trends and strategies to boost your online sales this year.</p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-6 h-6 rounded-full object-cover">
-                            <span class="text-xs text-gray-600">Michael Rodriguez</span>
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">MR</div>
+                            <span class="text-xs text-gray-500">Michael Rodriguez</span>
                         </div>
-                        <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-500">Read →</a>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Post 4 -->
-            <article class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
-                <div class="relative h-56 overflow-hidden">
+            <!-- Post 4 - UI/UX Design -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="ui-ux">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
                     <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="UI/UX principles" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute top-3 left-3">
-                        <span class="bg-emerald-600 text-white text-xs px-2 py-1">UI/UX Design</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">UI/UX Design</span>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span>📅 Feb 20, 2024</span>
-                        <span>⏱️ 5 min read</span>
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>February 20, 2024</span>
+                        <span>•</span>
+                        <span>5 min read</span>
                     </div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-2 group-hover:text-emerald-600 transition">
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
                         <a href="#">7 UI/UX Principles Every Designer Should Know</a>
                     </h3>
-                    <p class="text-gray-500 text-sm mb-4">
-                        Master the fundamental principles of user interface and user experience design.
-                    </p>
+                    <p class="text-gray-500 text-sm mb-4">Master the fundamental principles of user interface and user experience design.</p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-6 h-6 rounded-full object-cover">
-                            <span class="text-xs text-gray-600">Emily Wong</span>
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">EW</div>
+                            <span class="text-xs text-gray-500">Emily Wong</span>
                         </div>
-                        <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-500">Read →</a>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Post 5 -->
-            <article class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
-                <div class="relative h-56 overflow-hidden">
+            <!-- Post 5 - SEO & Marketing -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="seo">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
                     <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="SEO strategies" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute top-3 left-3">
-                        <span class="bg-emerald-600 text-white text-xs px-2 py-1">SEO & Marketing</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">SEO & Marketing</span>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span>📅 Feb 15, 2024</span>
-                        <span>⏱️ 9 min read</span>
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>February 15, 2024</span>
+                        <span>•</span>
+                        <span>9 min read</span>
                     </div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-2 group-hover:text-emerald-600 transition">
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
                         <a href="#">SEO Strategies That Actually Work in 2024</a>
                     </h3>
-                    <p class="text-gray-500 text-sm mb-4">
-                        Actionable SEO strategies to improve your website's search engine rankings.
-                    </p>
+                    <p class="text-gray-500 text-sm mb-4">Actionable SEO strategies to improve your website's search engine rankings.</p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-6 h-6 rounded-full object-cover">
-                            <span class="text-xs text-gray-600">John Anderson</span>
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">JA</div>
+                            <span class="text-xs text-gray-500">John Anderson</span>
                         </div>
-                        <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-500">Read →</a>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
                     </div>
                 </div>
             </article>
 
-            <!-- Post 6 -->
-            <article class="group bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
-                <div class="relative h-56 overflow-hidden">
+            <!-- Post 6 - AI & Tech -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="ai-tech">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
                     <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="AI in development" 
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute top-3 left-3">
-                        <span class="bg-emerald-600 text-white text-xs px-2 py-1">AI & Tech</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">AI & Tech</span>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                        <span>📅 Feb 10, 2024</span>
-                        <span>⏱️ 12 min read</span>
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>February 10, 2024</span>
+                        <span>•</span>
+                        <span>12 min read</span>
                     </div>
-                    <h3 class="text-xl font-bold text-navy-900 mb-2 group-hover:text-emerald-600 transition">
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
                         <a href="#">How AI is Transforming Software Development</a>
                     </h3>
-                    <p class="text-gray-500 text-sm mb-4">
-                        Explore how artificial intelligence is revolutionizing the way we build software.
-                    </p>
+                    <p class="text-gray-500 text-sm mb-4">Explore how artificial intelligence is revolutionizing the way we build software.</p>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                 alt="Author" 
-                                 class="w-6 h-6 rounded-full object-cover">
-                            <span class="text-xs text-gray-600">Sarah Chen</span>
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">SC</div>
+                            <span class="text-xs text-gray-500">Sarah Chen</span>
                         </div>
-                        <a href="#" class="text-emerald-600 text-sm font-semibold hover:text-emerald-500">Read →</a>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
                     </div>
                 </div>
             </article>
+
+            <!-- Post 7 - Business -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="business">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Digital transformation" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">Business</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>February 5, 2024</span>
+                        <span>•</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
+                        <a href="#">Digital Transformation Strategies for Modern Businesses</a>
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4">Learn how to successfully navigate your company's digital transformation journey.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">DP</div>
+                            <span class="text-xs text-gray-500">David Parker</span>
+                        </div>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 8 - Web Development -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="web-development">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="React best practices" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">Web Development</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>January 28, 2024</span>
+                        <span>•</span>
+                        <span>7 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
+                        <a href="#">Modern React Patterns You Should Know</a>
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4">Explore advanced React patterns that will make your applications more scalable and maintainable.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">JA</div>
+                            <span class="text-xs text-gray-500">John Anderson</span>
+                        </div>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 9 - Mobile Apps -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="mobile-apps">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1526498460520-4c246339d76b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="iOS vs Android" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">Mobile Apps</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>January 20, 2024</span>
+                        <span>•</span>
+                        <span>11 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
+                        <a href="#">iOS vs Android Development: A Comprehensive Guide</a>
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4">Compare the two major mobile platforms and decide which is right for your project.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">SC</div>
+                            <span class="text-xs text-gray-500">Sarah Chen</span>
+                        </div>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 10 - AI & Tech -->
+            <article class="blog-card bg-white border border-gray-200 hover:border-black transition-all duration-300" data-category="ai-tech">
+                <div class="relative h-56 overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Machine learning" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-black text-white text-xs px-2 py-1 font-semibold">AI & Tech</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <span>January 12, 2024</span>
+                        <span>•</span>
+                        <span>15 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-black mb-2 hover:text-gray-500 transition">
+                        <a href="#">Machine Learning in Mobile Apps: A Practical Guide</a>
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-4">Learn how to integrate machine learning capabilities into your mobile applications.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-gray-200 flex items-center justify-center text-black font-bold text-xs">ML</div>
+                            <span class="text-xs text-gray-500">Maria Lopez</span>
+                        </div>
+                        <a href="#" class="text-black text-sm font-semibold hover:text-gray-500 transition">Read →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-12 hidden">
+            <p class="text-gray-500 text-lg">No posts found in this category.</p>
         </div>
 
         <!-- Pagination -->
         <div class="flex justify-center items-center gap-3 mt-12">
-            <a href="#" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition">
+            <a href="#" id="prevPage" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-black hover:text-white hover:border-black transition">
                 Previous
             </a>
-            <a href="#" class="px-4 py-2 bg-emerald-600 text-white">1</a>
-            <a href="#" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition">2</a>
-            <a href="#" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition">3</a>
-            <span class="text-gray-500">...</span>
-            <a href="#" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition">10</a>
-            <a href="#" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition">
+            <a href="#" class="page-btn px-4 py-2 bg-black text-white" data-page="1">1</a>
+            <a href="#" class="page-btn px-4 py-2 border border-gray-300 text-gray-600 hover:bg-black hover:text-white hover:border-black transition" data-page="2">2</a>
+            <a href="#" class="page-btn px-4 py-2 border border-gray-300 text-gray-600 hover:bg-black hover:text-white hover:border-black transition" data-page="3">3</a>
+            <a href="#" id="nextPage" class="px-4 py-2 border border-gray-300 text-gray-600 hover:bg-black hover:text-white hover:border-black transition">
                 Next
             </a>
         </div>
     </div>
 
     <!-- Newsletter Section -->
-    <div class="bg-gray-50 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-4 font-display">Never Miss an Article</h2>
-            <p class="text-gray-600 mb-8 max-w-md mx-auto">
+    <div class="bg-gray-50 py-16 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-black mb-4 font-display">Never Miss an Article</h2>
+            <p class="text-gray-500 mb-8 max-w-md mx-auto">
                 Subscribe to our newsletter and get the latest insights delivered straight to your inbox.
             </p>
             <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input type="email" placeholder="Enter your email address" 
-                       class="flex-1 px-4 py-3 border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20">
-                <button type="submit" class="bg-emerald-600 text-white px-6 py-3 font-semibold hover:bg-emerald-500 transition">
+                       class="flex-1 px-4 py-3 border border-gray-300 focus:outline-none focus:border-black">
+                <button type="submit" class="bg-black text-white px-6 py-3 font-semibold hover:bg-gray-800 transition">
                     Subscribe
                 </button>
             </form>
@@ -349,24 +434,160 @@
     <script>
         // Category filter functionality
         const categoryBtns = document.querySelectorAll('.category-btn');
-        const posts = document.querySelectorAll('article');
+        const blogPosts = document.querySelectorAll('.blog-card');
+        const noResults = document.getElementById('noResults');
+        
+        function filterPosts(category) {
+            let visibleCount = 0;
+            
+            blogPosts.forEach(post => {
+                const postCategory = post.getAttribute('data-category');
+                if (category === 'all' || postCategory === category) {
+                    post.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+            
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
         
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const category = btn.textContent;
+                const category = btn.getAttribute('data-category');
                 
                 // Update active state
                 categoryBtns.forEach(b => {
-                    b.classList.remove('bg-emerald-600', 'text-white');
+                    b.classList.remove('active', 'bg-black', 'text-white');
                     b.classList.add('text-gray-600');
                 });
-                btn.classList.add('bg-emerald-600', 'text-white');
+                btn.classList.add('active', 'bg-black', 'text-white');
                 btn.classList.remove('text-gray-600');
                 
-                // Filter posts (simulated - would need actual category data)
-                // This is a simplified version - in production, you'd filter by actual categories
+                // Filter posts
+                filterPosts(category);
             });
         });
+        
+        // Pagination functionality
+        let currentPage = 1;
+        const postsPerPage = 6;
+        const allPosts = Array.from(blogPosts);
+        const pageBtns = document.querySelectorAll('.page-btn');
+        const prevBtn = document.getElementById('prevPage');
+        const nextBtn = document.getElementById('nextPage');
+        
+        function showPage(page) {
+            currentPage = page;
+            const start = (currentPage - 1) * postsPerPage;
+            const end = start + postsPerPage;
+            
+            // Get currently visible posts based on category filter
+            const visiblePosts = allPosts.filter(post => post.style.display !== 'none');
+            const visibleCount = visiblePosts.length;
+            const totalPages = Math.ceil(visibleCount / postsPerPage);
+            
+            // Hide all visible posts first
+            visiblePosts.forEach((post, index) => {
+                if (index >= start && index < end) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+            
+            // Update page button styles
+            pageBtns.forEach(btn => {
+                const pageNum = parseInt(btn.getAttribute('data-page'));
+                if (pageNum === currentPage) {
+                    btn.classList.remove('border-gray-300', 'text-gray-600', 'hover:bg-black', 'hover:text-white');
+                    btn.classList.add('bg-black', 'text-white');
+                } else {
+                    btn.classList.remove('bg-black', 'text-white');
+                    btn.classList.add('border', 'border-gray-300', 'text-gray-600', 'hover:bg-black', 'hover:text-white');
+                }
+            });
+            
+            // Update prev/next buttons visibility
+            if (prevBtn) {
+                if (currentPage === 1) {
+                    prevBtn.style.opacity = '0.5';
+                    prevBtn.style.pointerEvents = 'none';
+                } else {
+                    prevBtn.style.opacity = '1';
+                    prevBtn.style.pointerEvents = 'auto';
+                }
+            }
+            
+            if (nextBtn) {
+                if (currentPage === totalPages || totalPages === 0) {
+                    nextBtn.style.opacity = '0.5';
+                    nextBtn.style.pointerEvents = 'none';
+                } else {
+                    nextBtn.style.opacity = '1';
+                    nextBtn.style.pointerEvents = 'auto';
+                }
+            }
+            
+            if (noResults.classList.contains('hidden') === false) {
+                noResults.classList.add('hidden');
+            }
+        }
+        
+        // Override filterPosts to reset pagination
+        const originalFilterPosts = filterPosts;
+        window.filterPosts = function(category) {
+            originalFilterPosts(category);
+            currentPage = 1;
+            showPage(1);
+        };
+        
+        filterPosts = function(category) {
+            originalFilterPosts(category);
+            currentPage = 1;
+            showPage(1);
+        };
+        
+        // Page button click handlers
+        pageBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = parseInt(btn.getAttribute('data-page'));
+                if (!isNaN(page)) {
+                    showPage(page);
+                }
+            });
+        });
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    showPage(currentPage - 1);
+                }
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const visiblePosts = allPosts.filter(post => post.style.display !== 'none');
+                const totalPages = Math.ceil(visiblePosts.length / postsPerPage);
+                if (currentPage < totalPages) {
+                    showPage(currentPage + 1);
+                }
+            });
+        }
+        
+        // Initialize - show first page
+        setTimeout(() => {
+            showPage(1);
+        }, 100);
     </script>
 </body>
 </html>

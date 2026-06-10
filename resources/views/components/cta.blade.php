@@ -36,14 +36,7 @@
       <!-- Left Side - CTA Text Content -->
       <div class="flex-1 text-center lg:text-left">
         
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 border border-[#61629F]/20 bg-[#61629F]/5 px-4 py-2 mb-6">
-          <svg class="w-4 h-4 text-[#61629F]" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"/>
-          </svg>
-          <span class="text-xs font-semibold uppercase tracking-wider text-[#61629F]">Limited Time Offer</span>
-        </div>
-        
+       
         <!-- Main Heading -->
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 font-display tracking-tight leading-tight">
           Ready to Turn Your

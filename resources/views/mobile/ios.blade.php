@@ -83,9 +83,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 py-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <div class="inline-flex items-center gap-2 border border-white/20 bg-white/5 px-4 py-2 mb-6">
-                       
-                    </div>
+                   
                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-display tracking-tight leading-tight">
                         Build Premium 
                         <span class="text-white/60">iOS Apps</span>
