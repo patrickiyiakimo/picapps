@@ -46,10 +46,10 @@
         <!-- Blog Section -->
         @include('components.blogs-section')
 
-        <!-- CTA Section -->
-        @include('components.cta')
+       
     </main>
-    
+     <!-- CTA Section -->
+    @include('components.cta')
     <!-- Footer (create this if you haven't) -->
     @include('layouts.footer')
 </body>

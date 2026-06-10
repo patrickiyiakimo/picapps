@@ -39,8 +39,8 @@ Route::view('/services/ecommerce', 'services.ecommerce')->name('services.ecommer
 Route::view('/services/corporate', 'services.corporate')->name('services.corporate');
 Route::view('/services/custom-web', 'services.custom-web')->name('services.custom-web');
 Route::view('/services/cms', 'services.cms')->name('services.cms');
-Route::view('/services/ios', 'services.ios')->name('services.ios');
-Route::view('/services/android', 'services.android')->name('services.android');
+Route::view('/mobile/ios', 'mobile.ios')->name('mobile.ios');
+Route::view('/mobile/android', 'mobile.android')->name('mobile.android');
 Route::view('/services/cross-platform', 'services.cross-platform')->name('services.cross-platform');
 
 Route::get('/contact', function () {
