@@ -115,7 +115,7 @@
           <div class="vertical-line"></div>
           
           <!-- Big "Our Services" Text -->
-          <h1 class="text-8xl sm:text-9xl md:text-[10rem] lg:text-[11rem] xl:text-[13rem] font-bold text-black leading-none tracking-tight">
+          <h1 class="text-8xl sm:text-9xl md:text-[10rem] lg:text-[9rem] xl:text-[9rem] font-bold text-black leading-none tracking-tight">
             Our<br>Services
           </h1>
         </div>

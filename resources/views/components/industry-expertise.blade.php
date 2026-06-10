@@ -101,7 +101,7 @@
         <div class="flex gap-4">
           <div class="w-0.5 bg-black"></div>
           <div>
-            <h1 class="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] font-bold text-black leading-none tracking-tighter font-display">
+            <h1 class="text-7xl sm:text-8xl md:text-9xl lg:text-[9rem] xl:text-[9rem] font-bold text-black leading-none tracking-tighter font-display">
               Industries<br>We Serve
             </h1>
           </div>
