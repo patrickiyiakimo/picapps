@@ -35,6 +35,8 @@ Route::view('/webinars', 'webinars')->name('webinars');
 
 Route::view('/portfolio', 'portfolio')->name('portfolio');
 
+Route::view('/websites', 'websites')->name('websites');
+
 Route::view('/services/ecommerce', 'services.ecommerce')->name('services.ecommerce');
 Route::view('/services/corporate', 'services.corporate')->name('services.corporate');
 Route::view('/services/custom-web', 'services.custom-web')->name('services.custom-web');

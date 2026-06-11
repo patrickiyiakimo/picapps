@@ -46,10 +46,7 @@
         <!-- Blog Section -->
         @include('components.blogs-section')
 
-        <!-- Loading Animation -->
-        @include('components.loading-screen')
-
-       
+        
     </main>
      <!-- CTA Section -->
     @include('components.cta')

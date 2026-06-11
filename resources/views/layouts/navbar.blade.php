@@ -163,20 +163,10 @@
           
           <!-- WEBSITES -->
           <div class="relative group">
-            <span class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
+            <a href="/websites" class="nav-link relative px-4 py-2 font-medium text-sm flex items-center gap-1 transition-colors duration-200">
               Websites
-              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </span>
-            <div class="dropdown-panel absolute top-full left-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div class="py-2">
-                <a href="/websites/corporate" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Corporate & Business</a>
-                <a href="/websites/ecommerce" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">E‑commerce Platforms</a>
-                <a href="/websites/custom-webapps" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">Custom Web Applications</a>
-                <a href="/websites/cms" class="dropdown-link block px-5 py-2.5 text-sm border-l-2 border-transparent hover:border-gray-500">CMS Solutions</a>
-              </div>
-            </div>
+            </a>
+           
           </div>
           
           <!-- FIGMA DESIGN -->
