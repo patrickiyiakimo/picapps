@@ -83,12 +83,12 @@
         A trusted digital agency working with founders, leaders, and growing companies to build brand-led, SEO-ready, high-converting websites.
       </p>
       
-      <a href="#" class="btn-discuss uppercase inline-flex items-center justify-center gap-3 px-8 py-3.5 border border-gray-700 bg-white text-gray-800 font-semibold transition-all duration-300" id="discussBtn">
-        <span>Discuss possibilities</span>
-        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-        </svg>
-      </a>
+      <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Let's Create Your Brand" 
+    size="md"
+    variant="primary"
+/>
     </div>
 
   </div>

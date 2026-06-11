@@ -163,14 +163,14 @@
       </p>
       
       <!-- CTA Button -->
-      <div class="mb-6 md:mb-7 fade-in-up" style="animation-delay: 0.3s;">
-        <a href="#start-journey" class="btn-primary uppercase group text-sm sm:text-base inline-flex">
-          <span>Let's Create Your Brand</span>
-          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
-        </a>
-      </div>
+      
+      <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Let's Create Your Brand" 
+    size="md"
+    variant="primary"
+/>
+
       
       <!-- Rating -->
       <div class="flex items-center justify-center gap-4 text-xs pt-1 fade-in-up" style="animation-delay: 0.4s;">

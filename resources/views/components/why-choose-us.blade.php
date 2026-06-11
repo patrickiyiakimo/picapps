@@ -121,14 +121,12 @@
     </div>
 
     <!-- CTA Button -->
-    <div class="text-center">
-      <a href="/contact" class="group inline-flex items-center justify-center gap-3 bg-black text-white px-10 py-4 font-semibold text-sm hover:bg-gray-800 transition-all duration-300">
-        <span>Let's Work Together</span>
-        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
-    </div>
+     <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Let's Work Together" 
+    size="md"
+    variant="primary"
+/>
     
   </div>
 </section>

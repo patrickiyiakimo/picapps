@@ -121,14 +121,12 @@
         </div>
         
         <!-- Right side: CTA Button -->
-        <div class="lg:text-right">
-          <a href="/contact" class="btn-uppercase inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-semibold text-sm hover:bg-gray-900 transition-all duration-300 group border border-black">
-            <span>START YOUR PROJECT</span>
-            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </a>
-        </div>
+         <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Let's Discuss Your Project" 
+    size="md"
+    variant="dark"
+/>
         
       </div>
     </div>
@@ -241,12 +239,12 @@
               <p class="text-gray-300 mb-6 max-w-lg leading-relaxed">
                 No problem! Our expert designers can create stunning UI/UX designs from scratch, tailored to your brand and vision.
               </p>
-              <a href="/contact" class="btn-uppercase inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-semibold text-sm hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-lg">
-                START YOUR PROJECT
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
+               <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Start Your Project" 
+    size="md"
+    variant="primary"
+/>
             </div>
             
            

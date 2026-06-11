@@ -254,11 +254,14 @@
           </a>
           
           <!-- Start a Project Button -->
-          <a href="/contact" class="bg-white text-gray-900 hover:bg-gray-200 px-5 py-2 text-sm font-semibold transition-all duration-200 uppercase tracking-wide">
-            Start a Project
-          </a>
+        <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Start Project" 
+    size="sm"
+/>
         @endauth
       </div>
+      
 
       <!-- Mobile Menu Toggle (hamburger) -->
       <div class="lg:hidden flex items-center">
