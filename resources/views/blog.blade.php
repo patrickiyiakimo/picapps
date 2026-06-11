@@ -74,7 +74,7 @@
     <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
         
         <!-- Category Filters -->
-        <div class="border-b border-gray-200 mb-8 sticky top-20 z-40 bg-gray-50">
+        <div class="border-b border-gray-200 mb-8 sticky top-16 md:top-20 z-40 bg-gray-50">
             <div class="flex flex-wrap gap-2 pb-4">
                 <button class="category-btn active px-4 py-2 text-sm font-medium bg-black text-white transition" data-category="all">All Posts</button>
                 <button class="category-btn px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 transition" data-category="web-development">Web Development</button>

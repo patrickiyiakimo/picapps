@@ -16,6 +16,11 @@
       background: #000000;
     }
 
+    /* Professional Fonts - matching blog section */
+    .font-display {
+      font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    }
+
     .hero-wrapper, .hero-wrapper * {
       border-radius: 0 !important;
     }
@@ -30,11 +35,12 @@
       align-items: center;
       justify-content: center;
       gap: 0.75rem;
-      padding: 1rem 2rem;
-      font-size: 1rem;
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
       font-weight: 600;
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     
     .btn-primary:hover {
@@ -63,14 +69,14 @@
     .video-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.75) 100%);
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
       z-index: 1;
     }
 
     .video-overlay-secondary {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.4) 100%);
+      background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5) 100%);
       z-index: 2;
     }
 
@@ -83,15 +89,58 @@
       object-fit: cover;
       z-index: 0;
     }
+
+    /* Responsive height adjustments - Reduced further */
+    .hero-wrapper {
+      min-height: 65vh;
+    }
+
+    /* Mobile devices */
+    @media (max-width: 768px) {
+      .hero-wrapper {
+        min-height: 60vh;
+      }
+      .btn-primary {
+        padding: 0.75rem 1.5rem;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+      .hero-wrapper {
+        min-height: 70vh;
+      }
+    }
+
+    /* Ultrawide screens (21:9 and wider) */
+    @media (min-width: 1921px) {
+      .hero-wrapper {
+        min-height: 50vh;
+      }
+    }
+
+    /* Very large screens (4K+) */
+    @media (min-width: 2560px) {
+      .hero-wrapper {
+        min-height: 45vh;
+      }
+    }
+
+    /* Tablet landscape */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-wrapper {
+        min-height: 55vh;
+      }
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body style="font-family: 'Inter', sans-serif; background: #000;">
 
-<section class="hero-wrapper relative min-h-screen flex items-center overflow-hidden">
+<section class="hero-wrapper relative flex items-center overflow-hidden">
   
   <!-- Video Background -->
-  <video autoplay loop muted playsinline class="bg-video">
+  <video autoplay loop muted playsinline preload="auto" class="bg-video">
     <source src="/videos/alta-video-bg.mp4" type="video/mp4">
   </video>
   
@@ -99,23 +148,22 @@
   <div class="video-overlay"></div>
   <div class="video-overlay-secondary"></div>
 
-  <div class="relative z-10 w-full mx-auto px-5 sm:px-8 lg:px-12 py-16 md:py-20">
+  <div class="relative z-10 w-full mx-auto px-5 sm:px-8 lg:px-12 py-10 md:py-12">
     <div class="max-w-5xl mx-auto text-center">
       
-      
-      <!-- Main Heading -->
-      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.15] mb-8 fade-in-up" style="animation-delay: 0.1s;">
+      <!-- Main Heading - Using Space Grotesk font from blog -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-5 font-display tracking-tighter leading-[1.1] fade-in-up" style="animation-delay: 0.1s;">
         Crafting digital products<br>
-        <span class="text-white/70">with precision & clarity</span>
+        <span class="text-white/60">with precision & clarity</span>
       </h1>
       
       <!-- Description -->
-      <p class="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 fade-in-up" style="animation-delay: 0.2s;">
+      <p class="text-white/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6 md:mb-7 fade-in-up" style="animation-delay: 0.2s;">
         Native mobile apps, high‑performance websites, and Figma design assets — we build from concept to code, or from your ideas (even if you don't have a design file).
       </p>
       
       <!-- CTA Button -->
-      <div class="mb-10 fade-in-up" style="animation-delay: 0.3s;">
+      <div class="mb-6 md:mb-7 fade-in-up" style="animation-delay: 0.3s;">
         <a href="#start-journey" class="btn-primary uppercase group text-sm sm:text-base inline-flex">
           <span>Let's Create Your Brand</span>
           <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,10 +173,10 @@
       </div>
       
       <!-- Rating -->
-      <div class="flex items-center justify-center gap-4 text-xs pt-4 fade-in-up" style="animation-delay: 0.4s;">
+      <div class="flex items-center justify-center gap-4 text-xs pt-1 fade-in-up" style="animation-delay: 0.4s;">
         <div class="flex items-center gap-2">
-          <span class="text-white/90 text-2xl sm:text-3xl">★★★★★</span>
-          <span class="text-white/60 text-sm">5.0 (187 reviews)</span>
+          <span class="text-white/90 text-xl sm:text-2xl md:text-3xl tracking-wide">★★★★★</span>
+          <span class="text-white/60 text-xs sm:text-sm uppercase tracking-wide">5.0 (187 reviews)</span>
         </div>
       </div>
       
@@ -144,6 +192,13 @@
       alert("🚀 Let's build something exceptional. Our team will reach out to discuss your website, app or Figma design needs.");
     };
     if (ctaBtn) ctaBtn.addEventListener('click', handleCTAClick);
+    
+    // Force video to load immediately
+    const video = document.querySelector('.bg-video');
+    if (video) {
+      video.preload = 'auto';
+      video.load();
+    }
   })();
 </script>
 
@@ -156,14 +211,22 @@
     stroke: currentColor;
   }
   
-  .hero-wrapper {
-    min-height: 100vh;
-  }
-  
-  /* Ensure video plays smoothly */
+  /* Ensure video covers properly */
   .bg-video {
     object-fit: cover;
     object-position: center;
+  }
+  
+  /* Custom font styles */
+  .font-display {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Smooth text rendering */
+  h1, .btn-primary, .badge-text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 </style>
 
