@@ -15,6 +15,7 @@
     body {
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       background: #ffffff;
+      overflow-x: hidden;
     }
 
     .industry-card {
@@ -73,6 +74,39 @@
     .font-display {
       font-family: 'Bricolage Grotesque', 'Space Grotesk', system-ui, sans-serif;
     }
+
+    /* Sticky scroll effect - cards become sticky as they enter viewport */
+    .industry-card.sticky-active {
+      position: sticky;
+      top: 100px;
+      z-index: 10;
+    }
+
+    /* Progress indicator for scroll */
+    .scroll-progress {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .scroll-progress.visible {
+      opacity: 1;
+    }
+    
+    .scroll-progress:hover {
+      background: #61629F;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 </head>
@@ -94,7 +128,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-5 lg:px-8">
     
     <!-- Section Header - Big typography -->
-    <div class="mb-16 ">
+    <div class="mb-16">
       <hr class="border-t border-black mb-8">
       
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
@@ -117,11 +151,18 @@
       <hr class="border-t border-black mt-8">
     </div>
 
-    <!-- Industries Grid - 2 columns on desktop, 1 on mobile -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </div>
+
+    <!-- Industries Grid - 2 columns with sticky effect -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="industriesGrid">
       
       <!-- Industry 1: Education -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="/images/Rectangle 11.png" 
                alt="Education Industry" 
@@ -140,7 +181,7 @@
       </div>
 
       <!-- Industry 2: Textile -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.1s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.1s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="/images/Rectangle 18.png" 
                alt="Textile Industry" 
@@ -159,7 +200,7 @@
       </div>
 
       <!-- Industry 3: Fitness & Training -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.2s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.2s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                alt="Fitness Industry" 
@@ -178,7 +219,7 @@
       </div>
 
       <!-- Industry 4: Retail -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.3s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.3s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                alt="Retail Industry" 
@@ -197,7 +238,7 @@
       </div>
 
       <!-- Industry 5: Healthcare -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.4s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.4s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                alt="Healthcare Industry" 
@@ -216,7 +257,7 @@
       </div>
 
       <!-- Industry 6: Recruitment -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.5s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.5s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="/images/Rectangle 14.png" 
                alt="Recruitment Industry" 
@@ -235,7 +276,7 @@
       </div>
 
       <!-- Industry 7: Gaming -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.6s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.6s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                alt="Gaming Industry" 
@@ -254,7 +295,7 @@
       </div>
 
       <!-- Industry 8: Stock Market -->
-      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" style="animation-delay: 0.7s;">
+      <div class="industry-card group relative overflow-hidden bg-black fade-in-up" data-sticky="true" style="animation-delay: 0.7s;">
         <div class="relative h-[500px] md:h-[550px] lg:h-[600px] overflow-hidden">
           <img src="/images/Rectangle 12.png" 
                alt="Stock Market Industry" 
@@ -278,7 +319,85 @@
 </section>
 
 <script>
-  // Simple intersection observer for smooth fade-in as you scroll
+  // Sticky scroll effect - makes cards sticky as they scroll into view
+  (function() {
+    const cards = document.querySelectorAll('.industry-card');
+    const grid = document.getElementById('industriesGrid');
+    const progressBtn = document.getElementById('scrollProgress');
+    let activeStickyIndex = -1;
+    
+    // Function to handle sticky effect
+    function handleStickyScroll() {
+      const viewportHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const cardTop = rect.top + scrollY;
+        const cardBottom = cardTop + rect.height;
+        
+        // Check if card is in viewport
+        const isInViewport = rect.top < viewportHeight - 100 && rect.bottom > 100;
+        
+        if (isInViewport && activeStickyIndex !== index) {
+          // Remove sticky class from all cards
+          cards.forEach(c => {
+            c.classList.remove('sticky-active');
+            c.style.position = '';
+            c.style.top = '';
+            c.style.zIndex = '';
+          });
+          
+          // Add sticky class to current card
+          card.classList.add('sticky-active');
+          activeStickyIndex = index;
+        }
+      });
+    }
+    
+    // Show/hide scroll progress button
+    function handleProgressButton() {
+      if (window.scrollY > 500) {
+        progressBtn.classList.add('visible');
+      } else {
+        progressBtn.classList.remove('visible');
+      }
+    }
+    
+    // Scroll to top functionality
+    if (progressBtn) {
+      progressBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    // Throttled scroll handler for better performance
+    let ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleStickyScroll();
+          handleProgressButton();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', handleStickyScroll);
+    
+    // Initial call
+    setTimeout(() => {
+      handleStickyScroll();
+      handleProgressButton();
+    }, 100);
+  })();
+  
+  // Intersection observer for smooth fade-in
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -303,6 +422,54 @@
     observer.observe(card);
   });
 </script>
+
+<style>
+  /* Sticky card styling */
+  .industry-card.sticky-active {
+    position: sticky;
+    top: 100px;
+    z-index: 20;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+  
+  /* Smooth transition for sticky cards */
+  .industry-card {
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  }
+  
+  /* Scroll progress button animation */
+  .scroll-progress {
+    transition: opacity 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .scroll-progress svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .scroll-progress:hover svg {
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .industry-card.sticky-active {
+      top: 80px;
+    }
+    
+    .scroll-progress {
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+    }
+    
+    .scroll-progress svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>
 
 </body>
 </html>
