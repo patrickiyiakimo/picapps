@@ -78,6 +78,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/invoices', [AdminController::class, 'allInvoices'])->name('admin.invoices');
     Route::get('/admin/projects', [AdminController::class, 'allProjects'])->name('admin.projects');
     // ==================================================
+
+     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/users', [AdminController::class, 'manageUsers'])->name('admin.users');
+    Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/users/{user}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+    Route::get('/invoices', [AdminController::class, 'allInvoices'])->name('admin.invoices');
+    Route::get('/projects', [AdminController::class, 'allProjects'])->name('admin.projects');
+    Route::get('/pending-requests', [AdminController::class, 'pendingRequests'])->name('admin.pending-requests');
+    Route::post('/projects/{project}/approve', [AdminController::class, 'approveProject'])->name('admin.projects.approve');
+    Route::post('/projects/{project}/reject', [AdminController::class, 'rejectProject'])->name('admin.projects.reject');
+    Route::get('/projects/{project}', [AdminController::class, 'projectDetails'])->name('admin.projects.details');
+    Route::post('/projects/{project}/update', [AdminController::class, 'addProjectUpdate'])->name('admin.projects.update');
+    Route::get('/payments', [AdminController::class, 'allPayments'])->name('admin.payments');
+    Route::post('/payments/{payment}/confirm', [AdminController::class, 'confirmPayment'])->name('admin.payments.confirm');
     
     // Admin Finance and Project Management Routes (with admin middleware)
     Route::middleware(['admin'])->group(function () {
@@ -98,10 +112,12 @@ Route::get('/meeting-link', [DashboardController::class, 'getMeetingLink'])->nam
 Route::post('/meeting/{meeting}/reschedule', [DashboardController::class, 'rescheduleMeeting'])->name('meeting.reschedule');
 Route::delete('/meeting/{meeting}/cancel', [DashboardController::class, 'cancelMeeting'])->name('meeting.cancel');
 
-    // Invoice routes
-    Route::get('/invoices/{invoice}/download', [DashboardController::class, 'downloadInvoice']);
-    Route::get('/invoices/{invoice}/print', [DashboardController::class, 'printInvoice']);
-    
+    // Add these routes inside the auth middleware group
+Route::get('/invoices/{invoice}/download', [DashboardController::class, 'downloadInvoice'])->name('invoices.download');
+Route::post('/projects/request', [DashboardController::class, 'requestProject'])->name('projects.request');
+Route::post('/projects/{project}/cancel', [DashboardController::class, 'cancelProject'])->name('projects.cancel');
+Route::get('/invoices/{invoice}/pdf', [DashboardController::class, 'generateInvoicePDF'])->name('invoices.pdf');
+
     // Project routes
     Route::patch('/projects/{project}/progress', [DashboardController::class, 'updateProjectProgress']);
 });

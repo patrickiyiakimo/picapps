@@ -41,10 +41,50 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #a8a8a8;
         }
-        .crypto-logo {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: #000;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.3125rem;
+            top: 1.5rem;
+            bottom: -0.5rem;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .invoice-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .invoice-status::before {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            display: inline-block;
+        }
+        .invoice-status.paid::before {
+            background: #10b981;
+        }
+        .invoice-status.pending::before {
+            background: #f59e0b;
+        }
+        .invoice-status.overdue::before {
+            background: #ef4444;
         }
     </style>
 </head>
@@ -108,11 +148,12 @@
                         <h1 class="text-2xl font-bold font-display tracking-tight">Welcome back, {{ Auth::user()->name }}.</h1>
                         <p class="text-gray-400 text-sm mt-1">Here's an overview of your projects and activity.</p>
                     </div>
-                    <div class="hidden md:block">
-                        <svg class="w-16 h-16 text-white/10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    <button onclick="openRequestProjectModal()" class="inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 text-sm font-semibold hover:bg-gray-100 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
-                    </div>
+                        Request New Project
+                    </button>
                 </div>
             </div>
 
@@ -179,7 +220,244 @@
                 </div>
             </div>
 
-            <!-- Payment Information Section - Professional with Flags -->
+            <!-- Active Projects Section -->
+            <div class="bg-white border border-gray-200 mb-8">
+                <div class="p-6 border-b border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Active Projects</h2>
+                            <p class="text-sm text-gray-500 mt-1">Track progress and milestones of your ongoing projects</p>
+                        </div>
+                        <button onclick="openRequestProjectModal()" class="text-xs font-semibold text-gray-500 hover:text-black transition">+ REQUEST NEW</button>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    @forelse($projects as $project)
+                    <div class="mb-6 last:mb-0">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <h3 class="font-bold text-black">{{ $project->name }}</h3>
+                                <p class="text-xs text-gray-500">Started {{ \Carbon\Carbon::parse($project->created_at)->format('M d, Y') }}</p>
+                            </div>
+                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1">
+                                {{ ucfirst($project->status) }}
+                            </span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                <span>Overall Progress</span>
+                                <span>{{ $project->progress }}%</span>
+                            </div>
+                            <div class="w-full h-2 bg-gray-100 overflow-hidden">
+                                <div class="h-full bg-black transition-all duration-500" style="width: {{ $project->progress }}%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mt-4">
+                            @php
+                                $updates = json_decode($project->updates ?? '[]', true);
+                                $updates = array_slice($updates, -3);
+                            @endphp
+                            
+                            @forelse($updates as $update)
+                            <div class="timeline-item">
+                                <p class="text-sm text-gray-700">{{ $update['message'] }}</p>
+                                <p class="text-xs text-gray-400 mt-0.5">{{ \Carbon\Carbon::parse($update['date'])->diffForHumans() }}</p>
+                            </div>
+                            @empty
+                            <div class="text-center text-gray-400 text-sm py-2">
+                                <p>Project pending approval. We'll notify you once work begins.</p>
+                            </div>
+                            @endforelse
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-t border-gray-100">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-xs text-gray-500">Next milestone: 
+                                        @if($project->progress < 25)
+                                            Design Approval
+                                        @elseif($project->progress < 50)
+                                            Development Start
+                                        @elseif($project->progress < 75)
+                                            First Review
+                                        @elseif($project->progress < 100)
+                                            Final Testing
+                                        @else
+                                            Launch Preparation
+                                        @endif
+                                    </span>
+                                </div>
+                                <a href="#" class="text-xs text-black hover:text-gray-500 transition">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                    <div class="text-center py-12">
+                        <svg class="w-20 h-20 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <p class="text-gray-500">No active projects at the moment.</p>
+                        <button onclick="openRequestProjectModal()" class="mt-4 inline-flex items-center gap-2 bg-black text-white px-6 py-2.5 text-sm font-semibold hover:bg-gray-800 transition">
+                            Request Your First Project
+                        </button>
+                    </div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Invoices Section -->
+            <div class="bg-white border border-gray-200 mb-8">
+                <div class="p-6 border-b border-gray-200">
+                    <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Invoices & Billing</h2>
+                    <p class="text-sm text-gray-500 mt-1">View, download, and manage your invoices</p>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50 border-b border-gray-200">
+                            <tr>
+                                <th class="text-left p-4 text-xs font-semibold text-gray-500">Invoice #</th>
+                                <th class="text-left p-4 text-xs font-semibold text-gray-500">Date</th>
+                                <th class="text-left p-4 text-xs font-semibold text-gray-500">Amount</th>
+                                <th class="text-left p-4 text-xs font-semibold text-gray-500">Status</th>
+                                <th class="text-left p-4 text-xs font-semibold text-gray-500">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            @forelse($invoices as $invoice)
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="p-4">
+                                    <p class="text-sm font-semibold text-black">{{ $invoice->invoice_number }}</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-sm text-gray-600">{{ \Carbon\Carbon::parse($invoice->issue_date)->format('M d, Y') }}</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-sm font-bold text-black">{{ $invoice->currency === 'USD' ? '$' : '' }}{{ number_format($invoice->amount, 2) }}</p>
+                                </td>
+                                <td class="p-4">
+                                    <span class="invoice-status {{ $invoice->status }} text-sm">
+                                        {{ ucfirst($invoice->status) }}
+                                    </span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex gap-3">
+                                        <a href="{{ route('invoices.download', $invoice) }}" class="text-xs text-gray-500 hover:text-black transition">Download PDF</a>
+                                        @if($invoice->status === 'pending')
+                                            <button onclick="openPaymentModal({{ $invoice->id }}, '{{ $invoice->amount }}', '{{ $invoice->currency }}')" class="text-xs text-green-600 hover:text-green-700 transition">Pay Now</button>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="5" class="p-8 text-center text-gray-500">
+                                    No invoices yet. Once we start working on your project, invoices will appear here.
+                                </td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Request Project Modal -->
+            <div id="requestProjectModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+                <div class="bg-white w-full max-w-lg">
+                    <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                        <h2 class="text-xl font-bold">Request New Project</h2>
+                        <button onclick="closeRequestProjectModal()" class="text-gray-500 hover:text-black text-2xl">&times;</button>
+                    </div>
+                    <form method="POST" action="{{ route('projects.request') }}">
+                        @csrf
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Project Type *</label>
+                                <select name="type" class="w-full border border-gray-300 p-2" required>
+                                    <option value="">Select project type</option>
+                                    <option value="website">Website Development</option>
+                                    <option value="mobile_app">Mobile App Development</option>
+                                    <option value="figma">Figma Design</option>
+                                    <option value="ecommerce">E-commerce Platform</option>
+                                    <option value="custom">Custom Solution</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Project Name *</label>
+                                <input type="text" name="name" class="w-full border border-gray-300 p-2" placeholder="e.g., E-commerce Website" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                                <textarea name="description" rows="4" class="w-full border border-gray-300 p-2" placeholder="Describe your project requirements, goals, and any specific features you need..."></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Budget Range</label>
+                                <select name="budget" class="w-full border border-gray-300 p-2">
+                                    <option value="">Select budget range</option>
+                                    <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                                    <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                                    <option value="$25,000+">$25,000+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Timeline</label>
+                                <select name="timeline" class="w-full border border-gray-300 p-2">
+                                    <option value="">Select timeline</option>
+                                    <option value="ASAP">ASAP (Within 2 weeks)</option>
+                                    <option value="1 month">1 Month</option>
+                                    <option value="2-3 months">2-3 Months</option>
+                                    <option value="3-6 months">3-6 Months</option>
+                                    <option value="Flexible">Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="p-6 border-t border-gray-200 flex justify-end gap-3">
+                            <button type="button" onclick="closeRequestProjectModal()" class="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50">Cancel</button>
+                            <button type="submit" class="px-4 py-2 bg-black text-white hover:bg-gray-800">Submit Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Payment Modal -->
+            <div id="paymentModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+                <div class="bg-white w-full max-w-md">
+                    <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                        <h2 class="text-xl font-bold">Make a Payment</h2>
+                        <button onclick="closePaymentModal()" class="text-gray-500 hover:text-black text-2xl">&times;</button>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4 p-4 bg-gray-50">
+                            <p class="text-sm text-gray-500">Invoice Amount</p>
+                            <p class="text-2xl font-bold text-black" id="invoiceAmount">$0.00</p>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
+                            <select id="paymentMethod" class="w-full border border-gray-300 p-2">
+                                <option value="bank">Bank Transfer (USD/GBP/EUR/NGN)</option>
+                                <option value="crypto">Cryptocurrency (USDC/USDT)</option>
+                            </select>
+                        </div>
+                        <div class="bg-blue-50 p-3 text-xs text-blue-700">
+                            <p>After payment, please email proof of payment to payments@alta.agency with your invoice number.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-gray-200 flex justify-end gap-3">
+                        <button onclick="closePaymentModal()" class="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50">Cancel</button>
+                        <a href="#" id="viewBankDetailsBtn" class="px-4 py-2 bg-black text-white hover:bg-gray-800 text-center">View Payment Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Information Section -->
             <div class="bg-white border border-gray-200 mb-8">
                 <div class="p-6 border-b border-gray-200">
                     <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Payment Information</h2>
@@ -193,123 +471,61 @@
                             <span>🏦</span> Bank Transfer Details
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- USD Account -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
                                     <span class="text-2xl">🇺🇸</span>
-                                    <p class="font-semibold text-black text-sm">United States Dollar (USD)</p>
+                                    <p class="font-semibold text-black text-sm">US Dollar (USD)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
-                                    <p><span class="font-medium">Account Number:</span> 218854314747</p>
-                                    <p><span class="font-medium">Bank:</span> Lead Bank</p>
-                                    <p><span class="font-medium">ACH/Wire Routing:</span> 101019644</p>
-                                    <p><span class="font-medium">Bank Address:</span> 1801 Main St., Kansas City, MO 64108</p>
+                                    <p><span class="font-medium">Account:</span> 218854314747 (Lead Bank)</p>
+                                    <p><span class="font-medium">Routing:</span> 101019644</p>
                                 </div>
                             </div>
-                            
-                            <!-- GBP Account -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
                                     <span class="text-2xl">🇬🇧</span>
                                     <p class="font-semibold text-black text-sm">British Pound (GBP)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
-                                    <p><span class="font-medium">Account Number:</span> 41726617</p>
-                                    <p><span class="font-medium">Bank:</span> Clear Junction Limited</p>
+                                    <p><span class="font-medium">Account:</span> 41726617</p>
                                     <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
-                                    <p><span class="font-medium">Sort Code:</span> 041307</p>
-                                    <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
                                 </div>
                             </div>
-                            
-                            <!-- EUR Account -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
                                     <span class="text-2xl">🇪🇺</span>
                                     <p class="font-semibold text-black text-sm">Euro (EUR)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
                                     <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
-                                    <p><span class="font-medium">Bank:</span> Clear Junction Limited</p>
                                     <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
-                                    <p><span class="font-medium">Bank Address:</span> 4th Floor Imperial House, 15 Kingsway, London, WC2B 6UN</p>
                                 </div>
                             </div>
-                            
-                            <!-- NGN Account -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
                                     <span class="text-2xl">🇳🇬</span>
                                     <p class="font-semibold text-black text-sm">Nigerian Naira (NGN)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
-                                    <p><span class="font-medium">Account Number:</span> 7650552325</p>
-                                    <p><span class="font-medium">Bank:</span> Wema Bank</p>
+                                    <p><span class="font-medium">Account:</span> 7650552325 (Wema Bank)</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Crypto Payment Details with Real Logos -->
+                    <!-- Crypto Payment Details -->
                     <div class="border-t border-gray-200 pt-4">
                         <h3 class="text-sm font-semibold text-black mb-3 flex items-center gap-2">
                             <span>🪙</span> Cryptocurrency Payments
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- USDC BEP-20 -->
-                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDC'">
-                                    <p class="font-semibold text-black text-sm">USDC (BEP-20)</p>
-                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Binance Smart Chain</span>
-                                </div>
-                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
+                            <div class="border border-gray-200 p-4 bg-gray-50">
+                                <p class="font-semibold text-black text-sm">USDC (BEP-20)</p>
+                                <code class="text-xs bg-gray-100 p-2 block break-all mt-2 font-mono">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
                             </div>
-                            
-                            <!-- USDC ERC-20 -->
-                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDC'">
-                                    <p class="font-semibold text-black text-sm">USDC (ERC-20)</p>
-                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Ethereum</span>
-                                </div>
-                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
-                            </div>
-                            
-                            <!-- USDC Solana -->
-                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDC'">
-                                    <img src="https://cryptologos.cc/logos/solana-sol-logo.svg" alt="Solana" class="w-5 h-5">
-                                    <p class="font-semibold text-black text-sm">USDC (Solana)</p>
-                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Solana</span>
-                                </div>
-                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">F2jvHq631uqfQWrrHJfVTBgH3omSmaqhyhirQ4cRVtwb</code>
-                            </div>
-                            
-                            <!-- USDT BEP-20 -->
-                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" alt="USDT" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDT'">
-                                    <p class="font-semibold text-black text-sm">USDT (BEP-20)</p>
-                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Binance Smart Chain</span>
-                                </div>
-                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
-                            </div>
-                            
-                            <!-- USDT TRC-20 -->
-                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" alt="USDT" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDT'">
-                                    <img src="https://cryptologos.cc/logos/tron-trx-logo.svg" alt="Tron" class="w-5 h-5">
-                                    <p class="font-semibold text-black text-sm">USDT (TRC-20)</p>
-                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Tron</span>
-                                </div>
-                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
+                            <div class="border border-gray-200 p-4 bg-gray-50">
+                                <p class="font-semibold text-black text-sm">USDT (TRC-20)</p>
+                                <code class="text-xs bg-gray-100 p-2 block break-all mt-2 font-mono">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
                             </div>
                         </div>
                     </div>
@@ -317,127 +533,6 @@
                     <div class="mt-6 p-3 bg-gray-100 text-center text-xs text-gray-500">
                         After making a payment, please email <span class="font-mono">payments@alta.agency</span> with your invoice number and transaction reference.
                     </div>
-                </div>
-            </div>
-
-            <!-- Projects and Invoices Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-
-                <!-- Active Projects -->
-                <div class="lg:col-span-2 bg-white border border-gray-200">
-                    <div class="p-6 border-b border-gray-200">
-                        <div class="flex justify-between items-center">
-                            <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Active Projects</h2>
-                            <a href="#" class="text-xs font-semibold text-gray-500 hover:text-black transition">VIEW ALL →</a>
-                        </div>
-                    </div>
-                    <div class="divide-y divide-gray-100">
-                        @forelse($projects as $project)
-                        <div class="p-6 hover:bg-gray-50 transition">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-black">{{ $project->name }}</h3>
-                                <span class="text-xs bg-gray-100 text-gray-700 px-2 py-0.5 font-medium">
-                                    {{ ucfirst($project->status) }}
-                                </span>
-                            </div>
-                            <p class="text-sm text-gray-500 mb-4">{{ $project->description ?? 'No description provided.' }}</p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex-1 mr-4">
-                                    <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                        <span>Progress</span>
-                                        <span>{{ $project->progress }}%</span>
-                                    </div>
-                                    <div class="w-full h-1.5 bg-gray-100 overflow-hidden">
-                                        <div class="h-full bg-black" style="width: {{ $project->progress }}%"></div>
-                                    </div>
-                                </div>
-                                <div class="flex -space-x-2">
-                                    <div class="w-6 h-6 bg-gray-200 border-2 border-white"></div>
-                                    <div class="w-6 h-6 bg-gray-300 border-2 border-white"></div>
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-                        <div class="p-6 text-center text-gray-500">
-                            No active projects at the moment.
-                        </div>
-                        @endforelse
-                    </div>
-                </div>
-
-                <!-- Quick Actions & Invoices -->
-                <div class="space-y-6">
-                    <!-- Quick Actions -->
-                    <div class="bg-white border border-gray-200 p-6">
-                        <h2 class="text-base font-bold text-black uppercase tracking-wide font-display mb-4">Quick Actions</h2>
-                        <div class="space-y-3">
-                            <button onclick="openCreateProjectModal()" class="w-full flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 transition border border-gray-200">
-                                <span class="text-sm font-medium text-gray-700">Create New Project</span>
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                </svg>
-                            </button>
-                            <a href="/support" class="w-full flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 transition border border-gray-200">
-                                <span class="text-sm font-medium text-gray-700">Submit Support Ticket</span>
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Recent Invoices -->
-                    <div class="bg-white border border-gray-200 p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Recent Invoices</h2>
-                            <a href="#" class="text-xs font-semibold text-gray-500 hover:text-black transition">VIEW ALL</a>
-                        </div>
-                        <div class="space-y-3">
-                            @forelse($invoices as $invoice)
-                            <div class="flex justify-between items-center p-3 border-b border-gray-100">
-                                <div>
-                                    <p class="text-sm font-semibold text-black">{{ $invoice->invoice_number }}</p>
-                                    <p class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($invoice->issue_date)->format('M d, Y') }}</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-sm font-bold text-black">{{ $invoice->currency === 'USD' ? '$' : '' }}{{ number_format($invoice->amount, 2) }}</p>
-                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-0.5">{{ ucfirst($invoice->status) }}</span>
-                                </div>
-                            </div>
-                            @empty
-                            <div class="text-center text-gray-500 py-4">
-                                No invoices yet.
-                            </div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Activity Feed -->
-            <div class="bg-white border border-gray-200 mb-8">
-                <div class="p-6 border-b border-gray-200">
-                    <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Recent Activity</h2>
-                </div>
-                <div class="divide-y divide-gray-100">
-                    @forelse($activities as $activity)
-                    <div class="p-6 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gray-100 flex items-center justify-center">
-                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-sm text-gray-700">{{ $activity->description }}</p>
-                            <p class="text-xs text-gray-400 mt-0.5">{{ \Carbon\Carbon::parse($activity->created_at)->diffForHumans() }}</p>
-                        </div>
-                        <span class="text-xs text-gray-400">VIEW →</span>
-                    </div>
-                    @empty
-                    <div class="p-6 text-center text-gray-500">
-                        No recent activity.
-                    </div>
-                    @endforelse
                 </div>
             </div>
 
@@ -460,40 +555,36 @@
         </div>
     </div>
 
-    <!-- Create Project Modal -->
-    <div id="createProjectModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
-        <div class="bg-white w-full max-w-md p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold">Create New Project</h2>
-                <button onclick="closeCreateProjectModal()" class="text-gray-500 hover:text-black">&times;</button>
-            </div>
-            <form method="POST" action="{{ route('projects.create') }}">
-                @csrf
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Name</label>
-                    <input type="text" name="name" class="w-full border border-gray-300 p-2" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                    <textarea name="description" rows="3" class="w-full border border-gray-300 p-2"></textarea>
-                </div>
-                <div class="flex gap-3 justify-end">
-                    <button type="button" onclick="closeCreateProjectModal()" class="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50">Cancel</button>
-                    <button type="submit" class="px-4 py-2 bg-black text-white hover:bg-gray-800">Create Project</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script>
-        function openCreateProjectModal() {
-            document.getElementById('createProjectModal').classList.remove('hidden');
-            document.getElementById('createProjectModal').classList.add('flex');
+        let currentInvoiceId = null;
+
+        function openRequestProjectModal() {
+            document.getElementById('requestProjectModal').classList.remove('hidden');
+            document.getElementById('requestProjectModal').classList.add('flex');
         }
 
-        function closeCreateProjectModal() {
-            document.getElementById('createProjectModal').classList.add('hidden');
-            document.getElementById('createProjectModal').classList.remove('flex');
+        function closeRequestProjectModal() {
+            document.getElementById('requestProjectModal').classList.add('hidden');
+            document.getElementById('requestProjectModal').classList.remove('flex');
+        }
+
+        function openPaymentModal(invoiceId, amount, currency) {
+            currentInvoiceId = invoiceId;
+            document.getElementById('invoiceAmount').innerText = currency === 'USD' ? '$' + parseFloat(amount).toLocaleString() : amount;
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.add('flex');
+            
+            const viewBtn = document.getElementById('viewBankDetailsBtn');
+            viewBtn.onclick = function() {
+                closePaymentModal();
+                document.getElementById('payment-info').scrollIntoView({ behavior: 'smooth' });
+            };
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('flex');
+            currentInvoiceId = null;
         }
 
         // Add CSRF token meta tag

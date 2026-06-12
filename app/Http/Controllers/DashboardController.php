@@ -437,4 +437,88 @@ class DashboardController extends Controller
 
         return response()->json(['success' => true, 'payment_id' => $payment->id]);
     }
+
+    // Add to DashboardController.php
+public function addProjectUpdate(Request $request, Project $project)
+{
+    if (Auth::user()->role !== 'admin') {
+        abort(403);
+    }
+    
+    $request->validate([
+        'message' => 'required|string'
+    ]);
+    
+    $updates = json_decode($project->updates ?? '[]', true);
+    $updates[] = [
+        'message' => $request->message,
+        'date' => now()->toISOString(),
+        'author' => Auth::user()->name
+    ];
+    
+    $project->update([
+        'updates' => json_encode($updates),
+        'progress' => $request->progress ?? $project->progress
+    ]);
+    
+    // Send notification to user
+    Activity::create([
+        'user_id' => $project->user_id,
+        'type' => 'project_updated',
+        'description' => $request->message,
+        'metadata' => json_encode(['project_id' => $project->id])
+    ]);
+    
+    return redirect()->back()->with('success', 'Project update added successfully');
+}
+
+// Request a new project
+public function requestProject(Request $request)
+{
+    $user = Auth::user();
+    
+    $request->validate([
+        'type' => 'required|string',
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'budget' => 'nullable|string',
+        'timeline' => 'nullable|string',
+    ]);
+    
+    $project = Project::create([
+        'name' => $request->name,
+        'description' => $request->description,
+        'user_id' => $user->id,
+        'status' => 'pending',
+        'progress' => 0,
+        'metadata' => json_encode([
+            'type' => $request->type,
+            'budget' => $request->budget,
+            'timeline' => $request->timeline,
+            'requested_at' => now()->toISOString()
+        ])
+    ]);
+    
+    // Create activity notification for admin (you'll need to implement admin notification system)
+    Activity::create([
+        'user_id' => $user->id,
+        'type' => 'project_requested',
+        'description' => "New project request: {$request->name}",
+        'metadata' => json_encode(['project_id' => $project->id])
+    ]);
+    
+    return redirect()->back()->with('success', 'Project request submitted successfully! Our team will review and contact you within 24 hours.');
+}
+
+// Generate invoice PDF
+public function generateInvoicePDF(Invoice $invoice)
+{
+    if ($invoice->user_id !== Auth::id() && Auth::user()->role !== 'admin') {
+        abort(403);
+    }
+    
+    $pdf = app('dompdf.wrapper');
+    $pdf->loadView('invoices.pdf', compact('invoice'));
+    return $pdf->download("invoice-{$invoice->invoice_number}.pdf");
+}
 }
