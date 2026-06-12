@@ -10,9 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
@@ -22,7 +19,7 @@
         .font-display {
             font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
         }
-        a, button, div, input, select, textarea, .rounded-lg, .rounded-xl, .rounded-2xl {
+        a, button, div, input, select, textarea {
             border-radius: 0 !important;
         }
         .card-hover {
@@ -44,26 +41,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #a8a8a8;
         }
-        
-        /* Print styles for invoice */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            .invoice-print, .invoice-print * {
-                visibility: visible;
-            }
-            .invoice-print {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                padding: 20px;
-            }
-            .no-print {
-                display: none !important;
-            }
-        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -82,16 +59,12 @@
                         <a href="#" class="text-gray-500 hover:text-black transition text-sm font-medium">Projects</a>
                         <a href="#" class="text-gray-500 hover:text-black transition text-sm font-medium">Invoices</a>
                         <a href="#" class="text-gray-500 hover:text-black transition text-sm font-medium">Support</a>
-                        <a href="#" class="text-gray-500 hover:text-black transition text-sm font-medium">Settings</a>
                     </div>
 
                     <div class="flex items-center gap-5">
-                        <button class="relative text-gray-500 hover:text-black transition">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                            </svg>
-                            <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                        </button>
+                        @if(Auth::user()->role === 'admin')
+                            <a href="/admin" class="text-sm text-purple-600 hover:text-purple-700 transition font-medium">Admin Panel</a>
+                        @endif
 
                         <div class="relative group">
                             <button class="flex items-center gap-3 text-gray-700 hover:text-black transition">
@@ -159,7 +132,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Total Spent</p>
-                            <p class="text-3xl font-bold text-black mt-1 font-display">{{ $finance->default_currency === 'USD' ? '$' : '' }}{{ number_format($stats['total_spent'] ?? 0, 2) }}</p>
+                            <p class="text-3xl font-bold text-black mt-1 font-display">{{ isset($finance) && $finance->default_currency === 'USD' ? '$' : '' }}{{ number_format($stats['total_spent'] ?? 0, 2) }}</p>
                             <p class="text-xs text-gray-500 mt-1">Lifetime value</p>
                         </div>
                         <div class="w-10 h-10 bg-gray-100 flex items-center justify-center">
@@ -174,7 +147,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Outstanding Balance</p>
-                            <p class="text-3xl font-bold text-black mt-1 font-display">{{ $finance->default_currency === 'USD' ? '$' : '' }}{{ number_format($finance->outstanding_balance ?? 0, 2) }}</p>
+                            <p class="text-3xl font-bold text-black mt-1 font-display">{{ isset($finance) && $finance->default_currency === 'USD' ? '$' : '' }}{{ number_format($finance->outstanding_balance ?? 0, 2) }}</p>
                             <p class="text-xs text-red-500 mt-1">Due for payment</p>
                         </div>
                         <div class="w-10 h-10 bg-gray-100 flex items-center justify-center">
@@ -197,6 +170,81 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18.364 5.636L16 8m0 0l-2.364-2.364M16 8V4m-8 4H4m4 0h4M4 12h16M4 16h4m0 0l-2.364 2.364M8 16v4"></path>
                             </svg>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Information Section - Professional -->
+            <div class="bg-white border border-gray-200 mb-8">
+                <div class="p-6 border-b border-gray-200">
+                    <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Payment Information</h2>
+                    <p class="text-sm text-gray-500 mt-1">All invoices are sent via email. Payments are processed via bank transfer.</p>
+                </div>
+                
+                <div class="p-6">
+                    <!-- Bank Transfer Details - Professional Display -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-semibold text-black mb-3">Bank Transfer Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-gray-200 p-4 bg-gray-50">
+                                <p class="font-medium text-black text-sm mb-2">🇺🇸 US Dollar (USD)</p>
+                                <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Holder:</span> patrick chinenyenwa iyiakimo</p>
+                                    <p><span class="font-medium">Account Number:</span> 218854314747</p>
+                                    <p><span class="font-medium">Bank:</span> Lead Bank</p>
+                                    <p><span class="font-medium">ACH/Wire Routing:</span> 101019644</p>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-4 bg-gray-50">
+                                <p class="font-medium text-black text-sm mb-2">🇬🇧 British Pound (GBP)</p>
+                                <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Number:</span> 41726617</p>
+                                    <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
+                                    <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-4 bg-gray-50">
+                                <p class="font-medium text-black text-sm mb-2">🇪🇺 Euro (EUR)</p>
+                                <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
+                                    <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-4 bg-gray-50">
+                                <p class="font-medium text-black text-sm mb-2">🇳🇬 Nigerian Naira (NGN)</p>
+                                <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Number:</span> 7650552325</p>
+                                    <p><span class="font-medium">Bank:</span> Wema Bank</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Crypto Payment Details -->
+                    <details class="border-t border-gray-200 pt-4">
+                        <summary class="cursor-pointer text-sm font-medium text-gray-600 hover:text-black transition">💰 Crypto Payments (USDC / USDT) — Click to expand</summary>
+                        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-gray-200 p-4">
+                                <p class="font-medium text-sm mb-2">USDC (BEP-20)</p>
+                                <code class="text-xs bg-gray-100 p-2 block break-all">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
+                            </div>
+                            <div class="border border-gray-200 p-4">
+                                <p class="font-medium text-sm mb-2">USDC (ERC-20)</p>
+                                <code class="text-xs bg-gray-100 p-2 block break-all">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                            </div>
+                            <div class="border border-gray-200 p-4">
+                                <p class="font-medium text-sm mb-2">USDT (BEP-20)</p>
+                                <code class="text-xs bg-gray-100 p-2 block break-all">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                            </div>
+                            <div class="border border-gray-200 p-4">
+                                <p class="font-medium text-sm mb-2">USDT (TRC-20)</p>
+                                <code class="text-xs bg-gray-100 p-2 block break-all">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
+                            </div>
+                        </div>
+                    </details>
+
+                    <div class="mt-4 p-3 bg-gray-100 text-center text-xs text-gray-500">
+                        After making a payment, please email <span class="font-mono">payments@alta.agency</span> with your invoice number and transaction reference.
                     </div>
                 </div>
             </div>
@@ -262,12 +310,6 @@
                                 <span class="text-sm font-medium text-gray-700">Submit Support Ticket</span>
                                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                </svg>
-                            </a>
-                            <a href="/contact" class="w-full flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 transition border border-gray-200">
-                                <span class="text-sm font-medium text-gray-700">Request a Quote</span>
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                                 </svg>
                             </a>
                         </div>
@@ -358,11 +400,11 @@
                 @csrf
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Project Name</label>
-                    <input type="text" name="name" class="input-primary w-full" required>
+                    <input type="text" name="name" class="w-full border border-gray-300 p-2" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                    <textarea name="description" rows="3" class="textarea-primary w-full"></textarea>
+                    <textarea name="description" rows="3" class="w-full border border-gray-300 p-2"></textarea>
                 </div>
                 <div class="flex gap-3 justify-end">
                     <button type="button" onclick="closeCreateProjectModal()" class="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50">Cancel</button>

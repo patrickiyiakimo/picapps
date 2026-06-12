@@ -86,6 +86,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/users/{user}/project', [DashboardController::class, 'createProject']);
         Route::patch('/admin/invoices/{invoice}/paid', [DashboardController::class, 'markInvoicePaid']);
     });
+
+    // Add these to your web.php inside the auth middleware group
+Route::post('/payment/notify', [DashboardController::class, 'notifyPayment'])->name('payment.notify');
+Route::get('/admin/payments', [AdminController::class, 'allPayments'])->name('admin.payments');
+Route::post('/admin/payments/{payment}/confirm', [AdminController::class, 'confirmPayment'])->name('admin.payments.confirm');
     
     // Invoice routes
     Route::get('/invoices/{invoice}/download', [DashboardController::class, 'downloadInvoice']);

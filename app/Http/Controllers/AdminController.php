@@ -83,4 +83,37 @@ class AdminController extends Controller
         $projects = Project::with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.projects', compact('projects'));
     }
+    // Add to AdminController.php
+public function allPayments()
+{
+    if (Auth::user()->role !== 'admin') {
+        abort(403);
+    }
+    
+    $payments = Payment::with('user')->orderBy('created_at', 'desc')->paginate(20);
+    return view('admin.payments', compact('payments'));
+}
+
+public function confirmPayment(Payment $payment)
+{
+    if (Auth::user()->role !== 'admin') {
+        abort(403);
+    }
+    
+    $payment->update([
+        'status' => 'confirmed',
+        'paid_at' => now()
+    ]);
+    
+    // Update user finance
+    $finance = UserFinance::firstWhere('user_id', $payment->user_id);
+    if ($finance) {
+        $finance->update([
+            'total_spent' => $finance->total_spent + $payment->amount,
+            'outstanding_balance' => max(0, $finance->outstanding_balance - $payment->amount)
+        ]);
+    }
+    
+    return redirect()->back()->with('success', 'Payment confirmed successfully');
+}
 }

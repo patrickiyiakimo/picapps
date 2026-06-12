@@ -262,4 +262,26 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', 'Project progress updated');
     }
+    // Add to DashboardController.php
+public function notifyPayment(Request $request)
+{
+    $payment = Payment::create([
+        'user_id' => Auth::id(),
+        'amount' => $request->amount,
+        'currency' => $request->currency,
+        'payment_method' => $request->payment_method,
+        'status' => 'pending',
+        'notes' => 'Payment notification submitted by user'
+    ]);
+
+    // Log activity
+    Activity::create([
+        'user_id' => Auth::id(),
+        'type' => 'payment_initiated',
+        'description' => "Payment of {$request->currency} {$request->amount} initiated via " . str_replace('_', ' ', $request->payment_method),
+        'metadata' => json_encode(['payment_id' => $payment->id])
+    ]);
+
+    return response()->json(['success' => true, 'payment_id' => $payment->id]);
+}
 }
