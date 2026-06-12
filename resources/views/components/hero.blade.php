@@ -90,9 +90,16 @@
       z-index: 0;
     }
 
-    /* Responsive height adjustments - Reduced further */
+    /* Responsive height adjustments */
     .hero-wrapper {
-      min-height: 65vh;
+      min-height: 100vh; /* Full height for laptop/desktop */
+    }
+
+    /* Tablet landscape */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-wrapper {
+        min-height: 80vh;
+      }
     }
 
     /* Mobile devices */
@@ -115,21 +122,14 @@
     /* Ultrawide screens (21:9 and wider) */
     @media (min-width: 1921px) {
       .hero-wrapper {
-        min-height: 50vh;
+        min-height: 60vh;
       }
     }
 
     /* Very large screens (4K+) */
     @media (min-width: 2560px) {
       .hero-wrapper {
-        min-height: 45vh;
-      }
-    }
-
-    /* Tablet landscape */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .hero-wrapper {
-        min-height: 55vh;
+        min-height: 50vh;
       }
     }
   </style>
@@ -163,14 +163,12 @@
       </p>
       
       <!-- CTA Button -->
-      
       <x-shared.buttons.primary-button 
-    href="/contact" 
-    text="Let's Create Your Brand" 
-    size="md"
-    variant="primary"
-/>
-
+        href="/contact" 
+        text="Let's Create Your Brand" 
+        size="md"
+        variant="primary"
+      />
       
       <!-- Rating -->
       <div class="flex items-center justify-center gap-4 text-xs pt-1 fade-in-up" style="animation-delay: 0.4s;">

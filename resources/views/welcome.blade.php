@@ -22,6 +22,9 @@
         <!-- Hero Section - Full width, no container -->
         @include('components.hero')
 
+        <!-- trust bar -->
+        @include('components.trust-bar')
+
         <!-- Trust section -->
         @include('components.trust-section')
 
