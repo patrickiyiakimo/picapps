@@ -208,12 +208,12 @@
 
     <!-- CTA Section -->
     <div class="mt-12 text-center">
-      <a href="/case-studies" class="inline-flex items-center gap-2 bg-black text-white px-8 py-3.5 font-semibold text-sm hover:bg-gray-800 transition-all duration-300 group">
-        <span>View All Case Studies</span>
-        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </a>
+       <x-shared.buttons.primary-button 
+    href="/shop" 
+    text="View all templates" 
+    size="md"
+    variant="dark"
+/>
     </div>
     
   </div>

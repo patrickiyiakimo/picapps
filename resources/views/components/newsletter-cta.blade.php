@@ -136,15 +136,14 @@
         </div>
         
         <!-- Sign Up Button -->
-        <button type="submit" 
-                class="w-full bg-white text-black py-4 font-semibold uppercase tracking-wider text-sm hover:border-[#61629F] transition-all duration-300 group">
-          <span class="inline-flex items-center gap-2">
-            Sign Up
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </span>
-        </button>
+        <x-shared.buttons.primary-button 
+        type="button"
+        text="Sign Up" 
+        size="md"
+        variant="primary"
+        submit="true"
+        class="w-full"
+    />
         
         <!-- Privacy Notice -->
         <p class="text-gray-500 text-xs text-center leading-relaxed pt-2">

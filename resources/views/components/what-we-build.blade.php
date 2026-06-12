@@ -186,12 +186,12 @@
     size="md"
     variant="primary"
 />
-              <a href="/custom" class="inline-flex items-center uppercase justify-center gap-2 border border-gray-700 text-gray-300 px-8 py-3.5 font-semibold text-sm hover:border-[#61629F] hover:text-[#61629F] transition-all duration-300">
-                <span>Need Custom? Get Quote</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-              </a>
+             <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="Need Custom? Get Quote" 
+    variant="outline"
+    size="lg"
+/>
             </div>
           </div>
           

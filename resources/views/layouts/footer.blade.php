@@ -119,9 +119,14 @@
           <form action="#" method="POST" class="flex flex-col sm:flex-row gap-2">
             <input type="email" placeholder="Your email" 
                    class="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-white transition-colors">
-            <button type="submit" class="bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-gray-200 transition-all duration-300">
-              Send
-            </button>
+            <x-shared.buttons.primary-button 
+        type="button"
+        text="Send" 
+        size="sm"
+        variant="primary"
+        submit="true"
+        class="w-full"
+    />
           </form>
           <p class="text-gray-600 text-xs mt-2">No spam. Unsubscribe anytime.</p>
         </div>

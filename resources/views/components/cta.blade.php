@@ -49,18 +49,18 @@
         
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="/contact" class="group inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 font-semibold text-sm hover:bg-[#61629F] transition-all duration-300">
-            <span>Start Your Project</span>
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-            </svg>
-          </a>
-          <a href="#pricing" class="group inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-8 py-4 font-semibold text-sm hover:border-[#61629F] hover:text-[#61629F] transition-all duration-300">
-            <span>View Pricing</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-            </svg>
-          </a>
+          <x-shared.buttons.primary-button 
+    href="/blog" 
+    text="start your project" 
+    size="md"
+    variant="dark"
+/>
+          <x-shared.buttons.primary-button 
+    href="/blog" 
+    text="view pricing" 
+    size="md"
+    variant="purple"
+/>
         </div>
         
       </div>
