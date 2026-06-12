@@ -92,6 +92,12 @@ Route::post('/payment/notify', [DashboardController::class, 'notifyPayment'])->n
 Route::get('/admin/payments', [AdminController::class, 'allPayments'])->name('admin.payments');
 Route::post('/admin/payments/{payment}/confirm', [AdminController::class, 'confirmPayment'])->name('admin.payments.confirm');
     
+
+Route::post('/schedule-meeting', [DashboardController::class, 'scheduleMeeting'])->name('schedule.meeting');
+Route::get('/meeting-link', [DashboardController::class, 'getMeetingLink'])->name('meeting.link');
+Route::post('/meeting/{meeting}/reschedule', [DashboardController::class, 'rescheduleMeeting'])->name('meeting.reschedule');
+Route::delete('/meeting/{meeting}/cancel', [DashboardController::class, 'cancelMeeting'])->name('meeting.cancel');
+
     // Invoice routes
     Route::get('/invoices/{invoice}/download', [DashboardController::class, 'downloadInvoice']);
     Route::get('/invoices/{invoice}/print', [DashboardController::class, 'printInvoice']);

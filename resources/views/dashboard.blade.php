@@ -41,6 +41,11 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #a8a8a8;
         }
+        .crypto-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -174,45 +179,74 @@
                 </div>
             </div>
 
-            <!-- Payment Information Section - Professional -->
+            <!-- Payment Information Section - Professional with Flags -->
             <div class="bg-white border border-gray-200 mb-8">
                 <div class="p-6 border-b border-gray-200">
                     <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Payment Information</h2>
-                    <p class="text-sm text-gray-500 mt-1">All invoices are sent via email. Payments are processed via bank transfer.</p>
+                    <p class="text-sm text-gray-500 mt-1">All invoices are sent via email. Payments are processed via bank transfer or cryptocurrency.</p>
                 </div>
                 
                 <div class="p-6">
-                    <!-- Bank Transfer Details - Professional Display -->
-                    <div class="mb-6">
-                        <h3 class="text-sm font-semibold text-black mb-3">Bank Transfer Details</h3>
+                    <!-- Bank Transfer Details -->
+                    <div class="mb-8">
+                        <h3 class="text-sm font-semibold text-black mb-3 flex items-center gap-2">
+                            <span>🏦</span> Bank Transfer Details
+                        </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="border border-gray-200 p-4 bg-gray-50">
-                                <p class="font-medium text-black text-sm mb-2">🇺🇸 US Dollar (USD)</p>
+                            <!-- USD Account -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-2xl">🇺🇸</span>
+                                    <p class="font-semibold text-black text-sm">United States Dollar (USD)</p>
+                                </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account Holder:</span> patrick chinenyenwa iyiakimo</p>
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
                                     <p><span class="font-medium">Account Number:</span> 218854314747</p>
                                     <p><span class="font-medium">Bank:</span> Lead Bank</p>
                                     <p><span class="font-medium">ACH/Wire Routing:</span> 101019644</p>
+                                    <p><span class="font-medium">Bank Address:</span> 1801 Main St., Kansas City, MO 64108</p>
                                 </div>
                             </div>
-                            <div class="border border-gray-200 p-4 bg-gray-50">
-                                <p class="font-medium text-black text-sm mb-2">🇬🇧 British Pound (GBP)</p>
+                            
+                            <!-- GBP Account -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-2xl">🇬🇧</span>
+                                    <p class="font-semibold text-black text-sm">British Pound (GBP)</p>
+                                </div>
                                 <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
                                     <p><span class="font-medium">Account Number:</span> 41726617</p>
+                                    <p><span class="font-medium">Bank:</span> Clear Junction Limited</p>
                                     <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
+                                    <p><span class="font-medium">Sort Code:</span> 041307</p>
                                     <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
                                 </div>
                             </div>
-                            <div class="border border-gray-200 p-4 bg-gray-50">
-                                <p class="font-medium text-black text-sm mb-2">🇪🇺 Euro (EUR)</p>
+                            
+                            <!-- EUR Account -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-2xl">🇪🇺</span>
+                                    <p class="font-semibold text-black text-sm">Euro (EUR)</p>
+                                </div>
                                 <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
                                     <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
+                                    <p><span class="font-medium">Bank:</span> Clear Junction Limited</p>
                                     <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
+                                    <p><span class="font-medium">Bank Address:</span> 4th Floor Imperial House, 15 Kingsway, London, WC2B 6UN</p>
                                 </div>
                             </div>
-                            <div class="border border-gray-200 p-4 bg-gray-50">
-                                <p class="font-medium text-black text-sm mb-2">🇳🇬 Nigerian Naira (NGN)</p>
+                            
+                            <!-- NGN Account -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-2xl">🇳🇬</span>
+                                    <p class="font-semibold text-black text-sm">Nigerian Naira (NGN)</p>
+                                </div>
                                 <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
                                     <p><span class="font-medium">Account Number:</span> 7650552325</p>
                                     <p><span class="font-medium">Bank:</span> Wema Bank</p>
                                 </div>
@@ -220,30 +254,67 @@
                         </div>
                     </div>
 
-                    <!-- Crypto Payment Details -->
-                    <details class="border-t border-gray-200 pt-4">
-                        <summary class="cursor-pointer text-sm font-medium text-gray-600 hover:text-black transition">💰 Crypto Payments (USDC / USDT) — Click to expand</summary>
-                        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="border border-gray-200 p-4">
-                                <p class="font-medium text-sm mb-2">USDC (BEP-20)</p>
-                                <code class="text-xs bg-gray-100 p-2 block break-all">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
+                    <!-- Crypto Payment Details with Real Logos -->
+                    <div class="border-t border-gray-200 pt-4">
+                        <h3 class="text-sm font-semibold text-black mb-3 flex items-center gap-2">
+                            <span>🪙</span> Cryptocurrency Payments
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- USDC BEP-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDC'">
+                                    <p class="font-semibold text-black text-sm">USDC (BEP-20)</p>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Binance Smart Chain</span>
+                                </div>
+                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
                             </div>
-                            <div class="border border-gray-200 p-4">
-                                <p class="font-medium text-sm mb-2">USDC (ERC-20)</p>
-                                <code class="text-xs bg-gray-100 p-2 block break-all">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                            
+                            <!-- USDC ERC-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDC'">
+                                    <p class="font-semibold text-black text-sm">USDC (ERC-20)</p>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Ethereum</span>
+                                </div>
+                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
                             </div>
-                            <div class="border border-gray-200 p-4">
-                                <p class="font-medium text-sm mb-2">USDT (BEP-20)</p>
-                                <code class="text-xs bg-gray-100 p-2 block break-all">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                            
+                            <!-- USDC Solana -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg" alt="USDC" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDC'">
+                                    <img src="https://cryptologos.cc/logos/solana-sol-logo.svg" alt="Solana" class="w-5 h-5">
+                                    <p class="font-semibold text-black text-sm">USDC (Solana)</p>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Solana</span>
+                                </div>
+                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">F2jvHq631uqfQWrrHJfVTBgH3omSmaqhyhirQ4cRVtwb</code>
                             </div>
-                            <div class="border border-gray-200 p-4">
-                                <p class="font-medium text-sm mb-2">USDT (TRC-20)</p>
-                                <code class="text-xs bg-gray-100 p-2 block break-all">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
+                            
+                            <!-- USDT BEP-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" alt="USDT" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDT'">
+                                    <p class="font-semibold text-black text-sm">USDT (BEP-20)</p>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Binance Smart Chain</span>
+                                </div>
+                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                            </div>
+                            
+                            <!-- USDT TRC-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.svg" alt="USDT" class="w-6 h-6" onerror="this.src='https://placehold.co/24x24/black/white?text=USDT'">
+                                    <img src="https://cryptologos.cc/logos/tron-trx-logo.svg" alt="Tron" class="w-5 h-5">
+                                    <p class="font-semibold text-black text-sm">USDT (TRC-20)</p>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5 ml-auto">Tron</span>
+                                </div>
+                                <code class="text-xs bg-gray-100 p-2 block break-all font-mono">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
                             </div>
                         </div>
-                    </details>
+                    </div>
 
-                    <div class="mt-4 p-3 bg-gray-100 text-center text-xs text-gray-500">
+                    <div class="mt-6 p-3 bg-gray-100 text-center text-xs text-gray-500">
                         After making a payment, please email <span class="font-mono">payments@alta.agency</span> with your invoice number and transaction reference.
                     </div>
                 </div>
@@ -423,6 +494,14 @@
         function closeCreateProjectModal() {
             document.getElementById('createProjectModal').classList.add('hidden');
             document.getElementById('createProjectModal').classList.remove('flex');
+        }
+
+        // Add CSRF token meta tag
+        if (!document.querySelector('meta[name="csrf-token"]')) {
+            const meta = document.createElement('meta');
+            meta.name = 'csrf-token';
+            meta.content = '{{ csrf_token() }}';
+            document.head.appendChild(meta);
         }
     </script>
 

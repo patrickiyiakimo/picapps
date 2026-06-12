@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Invoice;
 use App\Models\Project;
 use App\Models\Activity;
+use App\Models\Meeting;
+use App\Models\Payment;
 use App\Models\UserFinance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +51,22 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
+        // Get or create meeting with permanent Google Meet link (valid format)
+        $meeting = Meeting::where('user_id', $user->id)->first();
+        
+        if (!$meeting) {
+            // Generate a valid Google Meet link in the correct format
+            // Example: https://meet.google.com/abc-def-ghi
+            $randomId = $this->generateRandomMeetId();
+            $meetLink = 'https://meet.google.com/' . $randomId;
+            
+            $meeting = Meeting::create([
+                'user_id' => $user->id,
+                'meet_link' => $meetLink,
+                'status' => 'pending'
+            ]);
+        }
+
         // Calculate statistics
         $stats = [
             'active_projects' => Project::where('user_id', $user->id)
@@ -68,7 +86,141 @@ class DashboardController extends Controller
             ];
         }
 
-        return view('dashboard', compact('user', 'finance', 'projects', 'invoices', 'activities', 'stats'));
+        return view('dashboard', compact('user', 'finance', 'projects', 'invoices', 'activities', 'stats', 'meeting'));
+    }
+
+    /**
+     * Generate a valid Google Meet ID
+     * Format: 10 characters with hyphens (e.g., abc-def-ghi)
+     */
+    private function generateRandomMeetId()
+    {
+        $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        $length = 10;
+        $randomString = '';
+        
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, strlen($characters) - 1)];
+        }
+        
+        // Format as xxx-xxx-xxxx
+        return substr($randomString, 0, 3) . '-' . substr($randomString, 3, 3) . '-' . substr($randomString, 6, 4);
+    }
+
+    // Schedule a meeting
+    public function scheduleMeeting(Request $request)
+    {
+        $user = Auth::user();
+        
+        $request->validate([
+            'scheduled_at' => 'required|date'
+        ]);
+        
+        // Get or create meeting record with permanent Google Meet link (valid format)
+        $meeting = Meeting::where('user_id', $user->id)->first();
+        
+        if (!$meeting) {
+            $randomId = $this->generateRandomMeetId();
+            $meetLink = 'https://meet.google.com/' . $randomId;
+            
+            $meeting = Meeting::create([
+                'user_id' => $user->id,
+                'meet_link' => $meetLink,
+                'status' => 'pending'
+            ]);
+        }
+        
+        $meeting->update([
+            'scheduled_at' => $request->scheduled_at,
+            'status' => 'confirmed'
+        ]);
+        
+        // Log activity
+        Activity::create([
+            'user_id' => $user->id,
+            'type' => 'meeting_scheduled',
+            'description' => "Meeting scheduled for " . \Carbon\Carbon::parse($request->scheduled_at)->format('F j, Y \a\t g:i A'),
+            'metadata' => json_encode(['meeting_id' => $meeting->id, 'scheduled_at' => $request->scheduled_at])
+        ]);
+        
+        return response()->json([
+            'success' => true, 
+            'meet_link' => $meeting->meet_link,
+            'scheduled_at' => $meeting->scheduled_at
+        ]);
+    }
+    
+    // Get meeting link
+    public function getMeetingLink()
+    {
+        $user = Auth::user();
+        $meeting = Meeting::where('user_id', $user->id)->first();
+        
+        if (!$meeting) {
+            // Create a new meeting with valid Google Meet link format
+            $randomId = $this->generateRandomMeetId();
+            $meetLink = 'https://meet.google.com/' . $randomId;
+            
+            $meeting = Meeting::create([
+                'user_id' => $user->id,
+                'meet_link' => $meetLink,
+                'status' => 'pending'
+            ]);
+        }
+        
+        return response()->json([
+            'meet_link' => $meeting->meet_link,
+            'scheduled_at' => $meeting->scheduled_at
+        ]);
+    }
+    
+    // Reschedule meeting
+    public function rescheduleMeeting(Request $request, Meeting $meeting)
+    {
+        if ($meeting->user_id !== Auth::id() && Auth::user()->role !== 'admin') {
+            abort(403);
+        }
+        
+        $request->validate([
+            'scheduled_at' => 'required|date'
+        ]);
+        
+        $meeting->update([
+            'scheduled_at' => $request->scheduled_at,
+            'status' => 'confirmed'
+        ]);
+        
+        // Log activity
+        Activity::create([
+            'user_id' => $meeting->user_id,
+            'type' => 'meeting_rescheduled',
+            'description' => "Meeting rescheduled to " . \Carbon\Carbon::parse($request->scheduled_at)->format('F j, Y \a\t g:i A'),
+            'metadata' => json_encode(['meeting_id' => $meeting->id])
+        ]);
+        
+        return redirect()->back()->with('success', 'Meeting rescheduled successfully');
+    }
+    
+    // Cancel meeting
+    public function cancelMeeting(Meeting $meeting)
+    {
+        if ($meeting->user_id !== Auth::id() && Auth::user()->role !== 'admin') {
+            abort(403);
+        }
+        
+        $meeting->update([
+            'status' => 'cancelled'
+        ]);
+        
+        // Log activity
+        Activity::create([
+            'user_id' => $meeting->user_id,
+            'type' => 'meeting_cancelled',
+            'description' => "Meeting cancelled",
+            'metadata' => json_encode(['meeting_id' => $meeting->id])
+        ]);
+        
+        return redirect()->back()->with('success', 'Meeting cancelled successfully');
     }
 
     // Admin: Update user finance
@@ -262,26 +414,27 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', 'Project progress updated');
     }
-    // Add to DashboardController.php
-public function notifyPayment(Request $request)
-{
-    $payment = Payment::create([
-        'user_id' => Auth::id(),
-        'amount' => $request->amount,
-        'currency' => $request->currency,
-        'payment_method' => $request->payment_method,
-        'status' => 'pending',
-        'notes' => 'Payment notification submitted by user'
-    ]);
 
-    // Log activity
-    Activity::create([
-        'user_id' => Auth::id(),
-        'type' => 'payment_initiated',
-        'description' => "Payment of {$request->currency} {$request->amount} initiated via " . str_replace('_', ' ', $request->payment_method),
-        'metadata' => json_encode(['payment_id' => $payment->id])
-    ]);
+    // Notify payment (keeping existing method)
+    public function notifyPayment(Request $request)
+    {
+        $payment = Payment::create([
+            'user_id' => Auth::id(),
+            'amount' => $request->amount,
+            'currency' => $request->currency,
+            'payment_method' => $request->payment_method,
+            'status' => 'pending',
+            'notes' => 'Payment notification submitted by user'
+        ]);
 
-    return response()->json(['success' => true, 'payment_id' => $payment->id]);
-}
+        // Log activity
+        Activity::create([
+            'user_id' => Auth::id(),
+            'type' => 'payment_initiated',
+            'description' => "Payment of {$request->currency} {$request->amount} initiated via " . str_replace('_', ' ', $request->payment_method),
+            'metadata' => json_encode(['payment_id' => $payment->id])
+        ]);
+
+        return response()->json(['success' => true, 'payment_id' => $payment->id]);
+    }
 }
