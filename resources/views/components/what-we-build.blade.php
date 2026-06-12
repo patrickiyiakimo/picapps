@@ -76,9 +76,12 @@
             <li class="flex items-center gap-2">✓ Customizable gallery</li>
             <li class="flex items-center gap-2">✓ Contact form included</li>
           </ul>
-          <button class="w-full py-3 text-sm font-semibold bg-black text-white hover:bg-[#61629F] transition-all duration-300">
-            View Demo
-          </button>
+           <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="View Demo" 
+    size="md"
+    variant="dark"
+/>
         </div>
       </div>
 
@@ -97,9 +100,12 @@
             <li class="flex items-center gap-2">✓ Newsletter integration</li>
             <li class="flex items-center gap-2">✓ Category management</li>
           </ul>
-          <button class="w-full py-3 text-sm font-semibold bg-black text-white hover:bg-[#61629F] transition-all duration-300">
-            View Demo
-          </button>
+         <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="View Demo" 
+    size="md"
+    variant="dark"
+/>
         </div>
       </div>
 
@@ -118,9 +124,12 @@
             <li class="flex items-center gap-2">✓ Menu management</li>
             <li class="flex items-center gap-2">✓ Location & hours</li>
           </ul>
-          <button class="w-full py-3 text-sm font-semibold bg-black text-white hover:bg-[#61629F] transition-all duration-300">
-            View Demo
-          </button>
+         <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="View Demo" 
+    size="md"
+    variant="dark"
+/>
         </div>
       </div>
 
@@ -139,9 +148,12 @@
             <li class="flex items-center gap-2">✓ Subscription tiers</li>
             <li class="flex items-center gap-2">✓ Member-only content</li>
           </ul>
-          <button class="w-full py-3 text-sm font-semibold bg-black text-white hover:bg-[#61629F] transition-all duration-300">
-            View Demo
-          </button>
+         <x-shared.buttons.primary-button 
+    href="/contact" 
+    text="View Demo" 
+    size="md"
+    variant="dark"
+/>
         </div>
       </div>
     </div>
@@ -168,12 +180,12 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="/shop" class="inline-flex items-center uppercase justify-center gap-2 bg-[#61629F] text-white px-8 py-3.5 font-semibold text-sm hover:bg-[#7B7CB3] transition-all duration-300 group">
-                <span>View All Templates</span>
-                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
-              </a>
+              <x-shared.buttons.primary-button 
+    href="/shop" 
+    text="View all templates" 
+    size="md"
+    variant="primary"
+/>
               <a href="/custom" class="inline-flex items-center uppercase justify-center gap-2 border border-gray-700 text-gray-300 px-8 py-3.5 font-semibold text-sm hover:border-[#61629F] hover:text-[#61629F] transition-all duration-300">
                 <span>Need Custom? Get Quote</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

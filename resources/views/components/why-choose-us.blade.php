@@ -125,7 +125,7 @@
     href="/contact" 
     text="Let's Work Together" 
     size="md"
-    variant="primary"
+    variant="dark"
 />
     
   </div>
