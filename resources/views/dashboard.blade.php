@@ -86,6 +86,36 @@
         .invoice-status.overdue::before {
             background: #ef4444;
         }
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-status.approved {
+            color: #10b981;
+        }
+        .project-status.pending {
+            color: #f59e0b;
+        }
+        .project-status.rejected {
+            color: #ef4444;
+        }
+        .copy-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            opacity: 0.7;
+        }
+        .copied-tooltip {
+            position: absolute;
+            background: black;
+            color: white;
+            padding: 2px 8px;
+            font-size: 10px;
+            white-space: nowrap;
+            z-index: 10;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -238,13 +268,22 @@
                         <div class="flex items-center justify-between mb-3">
                             <div>
                                 <h3 class="font-bold text-black">{{ $project->name }}</h3>
-                                <p class="text-xs text-gray-500">Started {{ \Carbon\Carbon::parse($project->created_at)->format('M d, Y') }}</p>
+                                <p class="text-xs text-gray-500">Submitted {{ \Carbon\Carbon::parse($project->created_at)->format('M d, Y') }}</p>
                             </div>
-                            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1">
-                                {{ ucfirst($project->status) }}
-                            </span>
+                            <div class="flex items-center gap-2">
+                                @if($project->status === 'active')
+                                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1">✓ Approved</span>
+                                @elseif($project->status === 'pending')
+                                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1">⏳ Pending Review</span>
+                                @elseif($project->status === 'rejected')
+                                    <span class="text-xs bg-red-100 text-red-800 px-2 py-1">✗ Not Approved</span>
+                                @else
+                                    <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1">{{ ucfirst($project->status) }}</span>
+                                @endif
+                            </div>
                         </div>
                         
+                        @if($project->status === 'active')
                         <div class="mb-4">
                             <div class="flex justify-between text-xs text-gray-500 mb-1">
                                 <span>Overall Progress</span>
@@ -268,7 +307,7 @@
                             </div>
                             @empty
                             <div class="text-center text-gray-400 text-sm py-2">
-                                <p>Project pending approval. We'll notify you once work begins.</p>
+                                <p>Work will begin soon. We'll keep you updated on progress.</p>
                             </div>
                             @endforelse
                         </div>
@@ -296,13 +335,27 @@
                                 <a href="#" class="text-xs text-black hover:text-gray-500 transition">View Details →</a>
                             </div>
                         </div>
+                        @elseif($project->status === 'pending')
+                        <div class="bg-yellow-50 p-4 border-l-4 border-yellow-500 mt-2">
+                            <p class="text-sm text-yellow-800">Your project request is awaiting review by our team.</p>
+                            <p class="text-xs text-yellow-600 mt-1">We'll notify you once a decision is made.</p>
+                        </div>
+                        @elseif($project->status === 'rejected')
+                        <div class="bg-red-50 p-4 border-l-4 border-red-500 mt-2">
+                            <p class="text-sm text-red-800">Your project request was not approved at this time.</p>
+                            @if($project->admin_notes)
+                            <p class="text-xs text-red-600 mt-1">Reason: {{ $project->admin_notes }}</p>
+                            @endif
+                            <button onclick="openRequestProjectModal()" class="mt-3 text-xs text-red-700 underline">Submit a new request →</button>
+                        </div>
+                        @endif
                     </div>
                     @empty
                     <div class="text-center py-12">
                         <svg class="w-20 h-20 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
-                        <p class="text-gray-500">No active projects at the moment.</p>
+                        <p class="text-gray-500">No projects yet.</p>
                         <button onclick="openRequestProjectModal()" class="mt-4 inline-flex items-center gap-2 bg-black text-white px-6 py-2.5 text-sm font-semibold hover:bg-gray-800 transition">
                             Request Your First Project
                         </button>
@@ -457,75 +510,174 @@
                 </div>
             </div>
 
-            <!-- Payment Information Section -->
-            <div class="bg-white border border-gray-200 mb-8">
+            <!-- Payment Information Section - Complete with All Accounts -->
+            <div id="payment-info" class="bg-white border border-gray-200 mb-8">
                 <div class="p-6 border-b border-gray-200">
                     <h2 class="text-base font-bold text-black uppercase tracking-wide font-display">Payment Information</h2>
                     <p class="text-sm text-gray-500 mt-1">All invoices are sent via email. Payments are processed via bank transfer or cryptocurrency.</p>
                 </div>
                 
                 <div class="p-6">
-                    <!-- Bank Transfer Details -->
+                    <!-- Bank Transfer Details - Complete with Flags -->
                     <div class="mb-8">
                         <h3 class="text-sm font-semibold text-black mb-3 flex items-center gap-2">
                             <span>🏦</span> Bank Transfer Details
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- USD Account - USA Flag -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
-                                    <span class="text-2xl">🇺🇸</span>
-                                    <p class="font-semibold text-black text-sm">US Dollar (USD)</p>
+                                    <img src="https://flagcdn.com/w40/us.png" alt="USA" class="w-6 h-4 object-cover">
+                                    <p class="font-semibold text-black text-sm">United States Dollar (USD)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account:</span> 218854314747 (Lead Bank)</p>
-                                    <p><span class="font-medium">Routing:</span> 101019644</p>
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
+                                    <p><span class="font-medium">Account Number:</span> 218854314747</p>
+                                    <p><span class="font-medium">Bank Name:</span> Lead Bank</p>
+                                    <p><span class="font-medium">ACH Routing:</span> 101019644</p>
+                                    <p><span class="font-medium">Wire Routing:</span> 101019644</p>
+                                    <p><span class="font-medium">Account Type:</span> Checking</p>
+                                    <p><span class="font-medium">Bank Address:</span> 1801 Main St., Kansas City, MO 64108</p>
                                 </div>
                             </div>
+                            
+                            <!-- GBP Account - UK Flag -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
-                                    <span class="text-2xl">🇬🇧</span>
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="UK" class="w-6 h-4 object-cover">
                                     <p class="font-semibold text-black text-sm">British Pound (GBP)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account:</span> 41726617</p>
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
+                                    <p><span class="font-medium">Account Number:</span> 41726617</p>
+                                    <p><span class="font-medium">Bank Name:</span> Clear Junction Limited</p>
                                     <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
+                                    <p><span class="font-medium">Sort Code:</span> 041307</p>
+                                    <p><span class="font-medium">SWIFT Code:</span> CLJUGB21XXX</p>
+                                    <p><span class="font-medium">Bank Address:</span> 4th Floor Imperial House, 15 Kingsway, London, WC2B 6UN</p>
                                 </div>
                             </div>
+                            
+                            <!-- EUR Account - EU Flag -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
-                                    <span class="text-2xl">🇪🇺</span>
+                                    <img src="https://flagcdn.com/w40/eu.png" alt="EU" class="w-6 h-4 object-cover">
                                     <p class="font-semibold text-black text-sm">Euro (EUR)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
                                     <p><span class="font-medium">IBAN:</span> GB47CLJU04130741726617</p>
-                                    <p><span class="font-medium">SWIFT:</span> CLJUGB21XXX</p>
+                                    <p><span class="font-medium">Bank Name:</span> Clear Junction Limited</p>
+                                    <p><span class="font-medium">SWIFT Code:</span> CLJUGB21XXX</p>
+                                    <p><span class="font-medium">Bank Address:</span> 4th Floor Imperial House, 15 Kingsway, London, WC2B 6UN</p>
                                 </div>
                             </div>
+                            
+                            <!-- NGN Account - Nigeria Flag -->
                             <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
                                 <div class="flex items-center gap-2 mb-3">
-                                    <span class="text-2xl">🇳🇬</span>
+                                    <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" class="w-6 h-4 object-cover">
                                     <p class="font-semibold text-black text-sm">Nigerian Naira (NGN)</p>
                                 </div>
                                 <div class="space-y-1 text-xs text-gray-600">
-                                    <p><span class="font-medium">Account:</span> 7650552325 (Wema Bank)</p>
+                                    <p><span class="font-medium">Account Holder:</span> Patrick Chinenyenwa Iyiakimo</p>
+                                    <p><span class="font-medium">Account Number:</span> 7650552325</p>
+                                    <p><span class="font-medium">Bank Name:</span> Wema Bank</p>
+                                    <p><span class="font-medium">Country:</span> Nigeria</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Crypto Payment Details -->
+                    <!-- Complete Crypto Payment Details -->
                     <div class="border-t border-gray-200 pt-4">
                         <h3 class="text-sm font-semibold text-black mb-3 flex items-center gap-2">
                             <span>🪙</span> Cryptocurrency Payments
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="border border-gray-200 p-4 bg-gray-50">
-                                <p class="font-semibold text-black text-sm">USDC (BEP-20)</p>
-                                <code class="text-xs bg-gray-100 p-2 block break-all mt-2 font-mono">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
+                            <!-- USDC BEP-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">🪙</span>
+                                        <p class="font-semibold text-black text-sm">USDC (BEP-20)</p>
+                                    </div>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5">Binance Smart Chain</span>
+                                </div>
+                                <div class="relative">
+                                    <code id="usdc-bep20" class="text-xs bg-gray-100 p-2 block break-all font-mono pr-8">0xbD084D6F6DeCed09B26f289325b300b4792cf67D</code>
+                                    <button onclick="copyToClipboard('usdc-bep20')" class="absolute right-2 top-2 text-gray-400 hover:text-black copy-btn">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="border border-gray-200 p-4 bg-gray-50">
-                                <p class="font-semibold text-black text-sm">USDT (TRC-20)</p>
-                                <code class="text-xs bg-gray-100 p-2 block break-all mt-2 font-mono">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
+                            
+                            <!-- USDC ERC-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">🪙</span>
+                                        <p class="font-semibold text-black text-sm">USDC (ERC-20)</p>
+                                    </div>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5">Ethereum</span>
+                                </div>
+                                <div class="relative">
+                                    <code id="usdc-erc20" class="text-xs bg-gray-100 p-2 block break-all font-mono pr-8">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                                    <button onclick="copyToClipboard('usdc-erc20')" class="absolute right-2 top-2 text-gray-400 hover:text-black copy-btn">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- USDC Solana -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">🪙</span>
+                                        <p class="font-semibold text-black text-sm">USDC (Solana)</p>
+                                    </div>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5">Solana</span>
+                                </div>
+                                <div class="relative">
+                                    <code id="usdc-solana" class="text-xs bg-gray-100 p-2 block break-all font-mono pr-8">F2jvHq631uqfQWrrHJfVTBgH3omSmaqhyhirQ4cRVtwb</code>
+                                    <button onclick="copyToClipboard('usdc-solana')" class="absolute right-2 top-2 text-gray-400 hover:text-black copy-btn">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- USDT BEP-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">🪙</span>
+                                        <p class="font-semibold text-black text-sm">USDT (BEP-20)</p>
+                                    </div>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5">Binance Smart Chain</span>
+                                </div>
+                                <div class="relative">
+                                    <code id="usdt-bep20" class="text-xs bg-gray-100 p-2 block break-all font-mono pr-8">0x6c8839E1fE299105f84FccBC991E8DeCE004c597</code>
+                                    <button onclick="copyToClipboard('usdt-bep20')" class="absolute right-2 top-2 text-gray-400 hover:text-black copy-btn">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- USDT TRC-20 -->
+                            <div class="border border-gray-200 p-4 bg-gray-50 hover:border-black transition">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">🪙</span>
+                                        <p class="font-semibold text-black text-sm">USDT (TRC-20)</p>
+                                    </div>
+                                    <span class="text-xs bg-gray-200 px-2 py-0.5">Tron</span>
+                                </div>
+                                <div class="relative">
+                                    <code id="usdt-trc20" class="text-xs bg-gray-100 p-2 block break-all font-mono pr-8">TJxCePGFW1Cntck9399aoxyWcrR4heUFMC</code>
+                                    <button onclick="copyToClipboard('usdt-trc20')" class="absolute right-2 top-2 text-gray-400 hover:text-black copy-btn">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -557,6 +709,21 @@
 
     <script>
         let currentInvoiceId = null;
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary tooltip
+                const btn = element.nextElementSibling;
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                }, 1500);
+            });
+        }
 
         function openRequestProjectModal() {
             document.getElementById('requestProjectModal').classList.remove('hidden');
