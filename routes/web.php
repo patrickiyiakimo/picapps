@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController; // Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,10 +64,33 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // Protected Routes (Authentication required)
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
-    // Add more protected routes here as needed
-    // Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    // Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
-    // Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices');
+    // Create project route
+    Route::post('/projects/create', [DashboardController::class, 'createProject'])->name('projects.create');
+    
+    // ============ ADMIN ROUTES - Add these ============
+    // Admin Dashboard and Management Routes
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
+    Route::get('/admin/users/{user}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+    Route::get('/admin/invoices', [AdminController::class, 'allInvoices'])->name('admin.invoices');
+    Route::get('/admin/projects', [AdminController::class, 'allProjects'])->name('admin.projects');
+    // ==================================================
+    
+    // Admin Finance and Project Management Routes (with admin middleware)
+    Route::middleware(['admin'])->group(function () {
+        Route::post('/admin/users/{user}/finance', [DashboardController::class, 'updateFinance']);
+        Route::post('/admin/users/{user}/invoice', [DashboardController::class, 'createInvoice']);
+        Route::post('/admin/users/{user}/project', [DashboardController::class, 'createProject']);
+        Route::patch('/admin/invoices/{invoice}/paid', [DashboardController::class, 'markInvoicePaid']);
+    });
+    
+    // Invoice routes
+    Route::get('/invoices/{invoice}/download', [DashboardController::class, 'downloadInvoice']);
+    Route::get('/invoices/{invoice}/print', [DashboardController::class, 'printInvoice']);
+    
+    // Project routes
+    Route::patch('/projects/{project}/progress', [DashboardController::class, 'updateProjectProgress']);
 });

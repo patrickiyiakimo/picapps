@@ -1,9 +1,9 @@
 <?php
-// app/Http/Controllers/AuthController.php
 
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserFinance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -62,15 +62,26 @@ class AuthController extends Controller
             'role' => 'client',
         ]);
 
+        // Create finance record for new user
+        UserFinance::create([
+            'user_id' => $user->id,
+            'total_spent' => 0,
+            'outstanding_balance' => 0,
+            'default_currency' => 'USD',
+            'payment_methods' => json_encode([]),
+            'bank_accounts' => json_encode([]),
+        ]);
+
         Auth::login($user);
 
         return redirect('/dashboard');
     }
 
-    // Show dashboard
+    // Show dashboard - THIS NEEDS TO BE FIXED
     public function dashboard()
     {
-        return view('dashboard');
+        // Call the DashboardController's index method
+        return app(DashboardController::class)->index();
     }
 
     // Handle logout
