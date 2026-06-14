@@ -762,6 +762,5 @@
             document.head.appendChild(meta);
         }
     </script>
-
 </body>
 </html>
