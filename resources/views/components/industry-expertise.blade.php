@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ALTA · Industries We Serve</title>
+  <title>PicApps · Industries We Serve</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * {
@@ -27,7 +27,7 @@
     }
 
     .industry-card:hover .industry-overlay {
-      background: linear-gradient(to top, rgba(97, 98, 159, 0.95), rgba(97, 98, 159, 0.7));
+      background: linear-gradient(to top, rgba(0, 191, 255, 0.92), rgba(0, 191, 255, 0.6));
     }
 
     .industry-overlay {
@@ -59,8 +59,8 @@
     }
 
     @keyframes pulse-slow {
-      0%, 100% { opacity: 0.15; transform: scale(1); }
-      50% { opacity: 0.25; transform: scale(1.05); }
+      0%, 100% { opacity: 0.08; transform: scale(1); }
+      50% { opacity: 0.15; transform: scale(1.05); }
     }
 
     .animate-pulse-slow {
@@ -72,17 +72,15 @@
     }
 
     .font-display {
-      font-family: 'Bricolage Grotesque', 'Space Grotesk', system-ui, sans-serif;
+      font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
     }
 
-    /* Sticky scroll effect - cards become sticky as they enter viewport */
     .industry-card.sticky-active {
       position: sticky;
       top: 100px;
       z-index: 10;
     }
 
-    /* Progress indicator for scroll */
     .scroll-progress {
       position: fixed;
       bottom: 30px;
@@ -90,14 +88,15 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.8);
+      background: #00BFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 100;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease;
       cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 191, 255, 0.3);
     }
     
     .scroll-progress.visible {
@@ -105,10 +104,11 @@
     }
     
     .scroll-progress:hover {
-      background: #61629F;
+      background: #0099CC;
+      transform: scale(1.05);
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 </head>
 <body class="bg-white">
 
@@ -116,39 +116,39 @@
   
   <!-- Background decorative elements -->
   <div class="absolute inset-0 z-0 pointer-events-none">
-    <svg class="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 1200 800" preserveAspectRatio="none">
-      <path d="M0,100 Q150,50 300,100 Q450,150 600,100 Q750,50 900,100 Q1050,150 1200,100" stroke="#61629F" stroke-width="2" fill="none"/>
-      <path d="M0,300 Q150,250 300,300 Q450,350 600,300 Q750,250 900,300 Q1050,350 1200,300" stroke="#61629F" stroke-width="2" fill="none" opacity="0.5"/>
-      <path d="M0,500 Q150,450 300,500 Q450,550 600,500 Q750,450 900,500 Q1050,550 1200,500" stroke="#61629F" stroke-width="1" fill="none" opacity="0.3"/>
+    <svg class="absolute top-0 left-0 w-full h-full opacity-5" viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <path d="M0,100 Q150,50 300,100 Q450,150 600,100 Q750,50 900,100 Q1050,150 1200,100" stroke="#00BFFF" stroke-width="2" fill="none"/>
+      <path d="M0,300 Q150,250 300,300 Q450,350 600,300 Q750,250 900,300 Q1050,350 1200,300" stroke="#00BFFF" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M0,500 Q150,450 300,500 Q450,550 600,500 Q750,450 900,500 Q1050,550 1200,500" stroke="#00BFFF" stroke-width="1" fill="none" opacity="0.3"/>
     </svg>
-    <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#61629F]/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
-    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-[#61629F]/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#00BFFF]/5 rounded-full filter blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-[#87CEEB]/5 rounded-full filter blur-3xl animate-pulse-slow"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-5 lg:px-8">
     
-    <!-- Section Header - Big typography -->
+    <!-- Section Header -->
     <div class="mb-16">
-      <hr class="border-t border-black mb-8">
+      <hr class="border-t border-[#eef2f6] mb-8">
       
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
         <div class="flex gap-4">
-          <div class="w-0.5 bg-black"></div>
+          <div class="w-0.5 bg-[#00BFFF]"></div>
           <div>
-            <h1 class="text-7xl sm:text-8xl md:text-9xl lg:text-[9rem] xl:text-[9rem] font-bold text-black leading-none tracking-tighter font-display">
-              Industries<br>We Serve
+            <h1 class="text-7xl sm:text-8xl md:text-9xl lg:text-[9rem] xl:text-[9rem] font-bold text-[#1a2a4a] leading-none tracking-tighter font-display">
+              Industries<br><span class="text-[#00BFFF]">We Serve</span>
             </h1>
           </div>
         </div>
         
         <div class="lg:text-right">
-          <p class="text-gray-500 max-w-md text-sm uppercase tracking-wide">
-            SPECIALIZED SOLUTIONS TAILORED TO YOUR INDUSTRY'S UNIQUE CHALLENGES
+          <p class="text-[#6a7a8a] max-w-md text-sm uppercase tracking-wide font-medium">
+            Specialized solutions tailored to your industry's unique challenges
           </p>
         </div>
       </div>
       
-      <hr class="border-t border-black mt-8">
+      <hr class="border-t border-[#eef2f6] mt-8">
     </div>
 
     <!-- Scroll Progress Indicator -->
@@ -158,7 +158,7 @@
       </svg>
     </div>
 
-    <!-- Industries Grid - 2 columns with sticky effect -->
+    <!-- Industries Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="industriesGrid">
       
       <!-- Industry 1: Education -->
@@ -170,7 +170,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Education</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -189,7 +189,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Textile</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -208,7 +208,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Fitness & Training</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -227,7 +227,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Retail</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -246,7 +246,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Healthcare</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -265,7 +265,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Recruitment</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -284,7 +284,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Gaming</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -303,7 +303,7 @@
           <div class="industry-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-500"></div>
           <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
             <div class="mb-3">
-              <div class="w-16 h-0.5 bg-[#61629F] mb-4 group-hover:w-24 transition-all duration-500"></div>
+              <div class="w-16 h-0.5 bg-[#00BFFF] mb-4 group-hover:w-24 transition-all duration-500"></div>
               <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-display">Stock Market</h2>
             </div>
             <p class="industry-description text-gray-300 text-sm md:text-base max-w-md opacity-0 transform translate-y-4">
@@ -319,14 +319,12 @@
 </section>
 
 <script>
-  // Sticky scroll effect - makes cards sticky as they scroll into view
   (function() {
     const cards = document.querySelectorAll('.industry-card');
     const grid = document.getElementById('industriesGrid');
     const progressBtn = document.getElementById('scrollProgress');
     let activeStickyIndex = -1;
     
-    // Function to handle sticky effect
     function handleStickyScroll() {
       const viewportHeight = window.innerHeight;
       const scrollY = window.scrollY;
@@ -336,11 +334,9 @@
         const cardTop = rect.top + scrollY;
         const cardBottom = cardTop + rect.height;
         
-        // Check if card is in viewport
         const isInViewport = rect.top < viewportHeight - 100 && rect.bottom > 100;
         
         if (isInViewport && activeStickyIndex !== index) {
-          // Remove sticky class from all cards
           cards.forEach(c => {
             c.classList.remove('sticky-active');
             c.style.position = '';
@@ -348,14 +344,12 @@
             c.style.zIndex = '';
           });
           
-          // Add sticky class to current card
           card.classList.add('sticky-active');
           activeStickyIndex = index;
         }
       });
     }
     
-    // Show/hide scroll progress button
     function handleProgressButton() {
       if (window.scrollY > 500) {
         progressBtn.classList.add('visible');
@@ -364,7 +358,6 @@
       }
     }
     
-    // Scroll to top functionality
     if (progressBtn) {
       progressBtn.addEventListener('click', () => {
         window.scrollTo({
@@ -374,7 +367,6 @@
       });
     }
     
-    // Throttled scroll handler for better performance
     let ticking = false;
     function onScroll() {
       if (!ticking) {
@@ -390,14 +382,12 @@
     window.addEventListener('scroll', onScroll);
     window.addEventListener('resize', handleStickyScroll);
     
-    // Initial call
     setTimeout(() => {
       handleStickyScroll();
       handleProgressButton();
     }, 100);
   })();
   
-  // Intersection observer for smooth fade-in
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -413,7 +403,6 @@
     });
   }, observerOptions);
   
-  // Observe all industry cards for smooth scroll reveal
   document.querySelectorAll('.industry-card').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
@@ -424,23 +413,19 @@
 </script>
 
 <style>
-  /* Sticky card styling */
   .industry-card.sticky-active {
     position: sticky;
     top: 100px;
     z-index: 20;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 191, 255, 0.08);
   }
   
-  /* Smooth transition for sticky cards */
   .industry-card {
     transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   }
   
-  /* Scroll progress button animation */
   .scroll-progress {
-    transition: opacity 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
   }
   
   .scroll-progress svg {
@@ -451,7 +436,6 @@
     transform: translateY(-3px);
   }
   
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .industry-card.sticky-active {
       top: 80px;

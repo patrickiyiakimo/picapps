@@ -37,9 +37,7 @@
         <!-- Industry Expertise Section -->
         @include('components.industry-expertise')
         
-        <!-- What We Build Section (Pre-built websites) -->
-        @include('components.what-we-build')
-
+       
         <!-- Testimonials Section -->
         @include('components.testimonials')
 
